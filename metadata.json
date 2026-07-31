@@ -1,0 +1,8 @@
+{
+  "name": "phone 2RemixGary- Enjoytyre-11111 system",
+  "description": "Comprehensive directory and AI sourcing analysis of top 10 French tire importers verified to purchase and distribute Chinese tire brands.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

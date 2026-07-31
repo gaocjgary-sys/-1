@@ -1,0 +1,22 @@
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+
+/* Mobile scrollbar utilities */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Touch manipulation optimization */
+.touch-manipulation {
+  touch-action: manipulation;
+}
+
+/* Custom leaflet map pin style fixes */
+.custom-map-pin-container {
+  background: transparent !important;
+  border: none !important;
+}

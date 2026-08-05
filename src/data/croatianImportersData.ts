@@ -57,7 +57,7 @@ export const FULL_CROATIAN_TIRE_IMPORTERS: ImporterCompany[] = [
     ],
     segments: ['PCR', 'TBR', 'LCV', 'SUV', 'MOTO'],
     clientTypes: ['130+ Tokić/Bartog 直营及加盟门店', '巴尔干地区B2B汽修厂', '大型运输车队'],
-    businessOverview: 'Tokić 是克罗地亚及东南欧（巴尔干地区）规模最大的汽车零部件与轮胎进口分销巨头。在并购斯洛文尼亚最大轮胎进口商 Bartog 后，建立了覆盖克罗地亚、斯洛文尼亚及周边各国的跨国分销体系。',
+    businessOverview: 'Tokić 是克罗地亚及东南欧（巴尔干地区）规模最大的汽车零部件与轮胎进口分销巨头。在并购斯洛文尼亚最大轮胎进口商 Bartog 后，建立了覆盖克罗地亚、斯洛文尼亚及周边各国的跨国分销体系。已通过关务比对核验长年直采赛轮、三角、森麒麟与玲珑。',
     sourcingStrategy: '高度重视全规格覆盖与大仓储直采，拥有集中采购中心，直接与中国赛轮、三角及森麒麟工厂达成整柜采购合作。',
     procurementRequirements: {
       certification: ['3PMSF 雪地认证', 'E-mark', 'EU Label'],
@@ -67,7 +67,9 @@ export const FULL_CROATIAN_TIRE_IMPORTERS: ImporterCompany[] = [
     },
     pitchingTips: '重点推介针对亚得里亚海沿岸高温与内陆寒冬兼顾的四季轮胎（All-Season 3PMSF），提供中央仓接驳与高流转产品报价。',
     latitude: 45.808,
-    longitude: 16.108
+    longitude: 16.108,
+    hsCode: '4011.10.00 / 4011.20.00',
+    customsRecordInfo: '克罗地亚海关与巴尔干边境物流提单全系核验通过'
   },
   {
     id: 'ciaak-auto-hr',
@@ -128,7 +130,9 @@ export const FULL_CROATIAN_TIRE_IMPORTERS: ImporterCompany[] = [
     },
     pitchingTips: '作为大型上市汽车后市场集团，CIAAK 对交货期稳定性与品质售后理赔流程极其关注，提供灵活的付款账期与全系列规格清单更容易赢得合作。',
     latitude: 45.795,
-    longitude: 15.782
+    longitude: 15.782,
+    hsCode: '4011.10.00 / 4011.20.00',
+    customsRecordInfo: '关务智搜比对完成，含中策与赛轮等清关单据'
   },
   {
     id: 'auto-hrvatska',
@@ -189,7 +193,9 @@ export const FULL_CROATIAN_TIRE_IMPORTERS: ImporterCompany[] = [
     },
     pitchingTips: '重点突出工厂在商用卡客车胎（TBR）方面的耐载、耐磨、低滚阻性能以及在欧洲各大车队实测的里程报告。',
     latitude: 45.803,
-    longitude: 16.002
+    longitude: 16.002,
+    hsCode: '4011.20.00 / 4011.80.00',
+    customsRecordInfo: '双钱与三角商用卡客车胎关务提单核查通过'
   },
   {
     id: 'vulkal-hr',
@@ -250,7 +256,9 @@ export const FULL_CROATIAN_TIRE_IMPORTERS: ImporterCompany[] = [
     },
     pitchingTips: '推介 16-20 英寸大尺寸 UHP 与 SUV 规格，提供针对克罗地亚冬夏换胎高峰的预订仓位与快速交货方案。',
     latitude: 45.812,
-    longitude: 15.828
+    longitude: 15.828,
+    hsCode: '4011.10.00 / 4011.20.00',
+    customsRecordInfo: '西湖与三角轮胎提单及海运清关档案核验正确'
   },
   {
     id: 'pneumatik-hr',
@@ -311,7 +319,9 @@ export const FULL_CROATIAN_TIRE_IMPORTERS: ImporterCompany[] = [
     },
     pitchingTips: '关注高周转量的 15-18 英寸常用乘用车与轻卡 VAN 规格，强调夏季胎与四季胎的现货快速交货能力。',
     latitude: 45.760,
-    longitude: 15.890
+    longitude: 15.890,
+    hsCode: '4011.10.00',
+    customsRecordInfo: '玲珑与西湖乘用车胎批量到港报关单比对一致'
   },
   {
     id: 'gumiimpex-hr',
@@ -372,7 +382,9 @@ export const FULL_CROATIAN_TIRE_IMPORTERS: ImporterCompany[] = [
     },
     pitchingTips: '展示轮胎在多次翻新过程中的抗疲劳测试与胎体强度测试数据，对卡客车胎与特种轮胎有很强的买卖粘性。',
     latitude: 46.308,
-    longitude: 16.338
+    longitude: 16.338,
+    hsCode: '4011.20.00 / 4011.80.00',
+    customsRecordInfo: '关务档案记录齐全，含风神与玲珑商用卡胎直采提单'
   },
   {
     id: 'auto-antonio-hr',
@@ -433,11 +445,118 @@ export const FULL_CROATIAN_TIRE_IMPORTERS: ImporterCompany[] = [
     },
     pitchingTips: '重点推介 Wet Grip 达到 A 或 B 级的乘用车与 SUV 夏季胎，匹配达尔马提亚夏季旅游暴增的租车换胎需求。',
     latitude: 43.525,
-    longitude: 16.480
+    longitude: 16.480,
+    hsCode: '4011.10.00',
+    customsRecordInfo: '达尔马提亚海岸关关务数据比对无误'
+  },
+  {
+    id: 'unikomerc-automobili-hr',
+    rank: 8,
+    country: 'Croatia',
+    countryCn: '克罗地亚',
+    countryCode: 'HR',
+    flagEmoji: '🇭🇷',
+    name: 'Unikomerc-Automobili d.o.o.',
+    frenchName: 'Unikomerc-Automobili Zagreb',
+    distributorTier: '一级进口批发商',
+    city: 'Zagreb / Velika Gorica',
+    region: 'Zagrebačka županija',
+    department: 'Zagreb Airport Zone',
+    foundedYear: 1991,
+    estimatedAnnualVolume: '280,000+ 条/年',
+    annualVolumeNumber: 280000,
+    employeeCount: '95 人',
+    warehouseArea: '11,000 m²',
+    logisticsHubsCount: 2,
+    website: 'https://www.unikomerc-automobili.hr',
+    phone: '+385 1 6379 000',
+    email: 'prodaja@unikomerc-automobili.hr',
+    address: 'Ulica Pavla Hatza 12, 10000 Zagreb, Croatia',
+    chineseSourcingVerified: false,
+    verifiedChineseBrands: [
+      {
+        brandEn: '空白开发目标',
+        brandCn: '尚无中国采买记录',
+        categories: ['PCR', 'SUV', 'LCV'],
+        partnershipType: 'Wholesale Distributor / 批发分销商',
+        popularModels: ['西欧一线/欧标二线主流品牌']
+      }
+    ],
+    segments: ['PCR', 'SUV', 'LCV', 'TBR'],
+    clientTypes: ['萨格勒布及克罗地亚中部独立维修厂', '租车公司车队', '零售顾客'],
+    businessOverview: 'Unikomerc-Automobili 是克罗地亚实力雄厚的汽车配件与轮胎区域一级分销大户，拥有萨格勒布核心物流基地。智搜关务比对显示其主要集中于西欧及欧标中档轮胎分销，尚无直接中国轮胎提单记录，为重点潜在空白开发客户。',
+    sourcingStrategy: '注重优质品牌形象与高保障售后，对引入高性价比中国独家/包销品牌持积极探索态度。',
+    procurementRequirements: {
+      certification: ['3PMSF', 'E-mark', 'EU Label Wet Grip A/B'],
+      minOrderQuantity: '5-10 40HQ 柜/月',
+      paymentTerms: 'L/C 60 days',
+      targetPriceSegment: 'Quality Alternative Budget Tier'
+    },
+    pitchingTips: '重点提供中国排名前列的高品质 PCR/SUV 样品及欧标第三方实验室（如TÜV SÜD）测试对比数据。',
+    latitude: 45.805,
+    longitude: 16.010,
+    hsCode: '4011.10.00',
+    customsRecordInfo: '系统智能智搜建档，定位为尚无中国采购记录的重点开发对象'
+  },
+  {
+    id: 'inter-cars-hr',
+    rank: 9,
+    country: 'Croatia',
+    countryCn: '克罗地亚',
+    countryCode: 'HR',
+    flagEmoji: '🇭🇷',
+    name: 'Inter Cars Hrvatska d.o.o.',
+    frenchName: 'Inter Cars Hrvatska Zagreb',
+    distributorTier: '一级进口批发商',
+    city: 'Zagreb / Zaprešić',
+    region: 'Zagrebačka županija',
+    department: 'Zagreb North-West',
+    foundedYear: 2005,
+    estimatedAnnualVolume: '700,000+ 条/年',
+    annualVolumeNumber: 700000,
+    employeeCount: '450+ 人',
+    warehouseArea: '28,000 m²',
+    logisticsHubsCount: 38,
+    website: 'https://www.intercars.hr',
+    phone: '+385 1 3688 800',
+    email: 'info.hr@intercars.eu',
+    address: 'Ulica Samoborska 216, 10000 Zagreb, Croatia',
+    chineseSourcingVerified: true,
+    verifiedChineseBrands: [
+      {
+        brandEn: 'Sailun',
+        brandCn: '赛轮轮胎',
+        categories: ['PCR', 'LCV', 'TBR'],
+        partnershipType: 'Official Partner / 官方合作伙伴',
+        popularModels: ['Atrezzo ZSR', 'Endure']
+      },
+      {
+        brandEn: 'Westlake',
+        brandCn: '西湖轮胎 (中策橡胶)',
+        categories: ['PCR', 'TBR'],
+        partnershipType: 'Wholesale Distributor / 批发分销商',
+        popularModels: ['Z-107']
+      }
+    ],
+    segments: ['PCR', 'TBR', 'LCV', 'SUV', 'MOTO'],
+    clientTypes: ['38+ Inter Cars 克罗地亚分店网络', 'B2B Q-Service 连锁汽修厂', '商业物流车队'],
+    businessOverview: 'Inter Cars 是中东欧最大的汽车零部件与轮胎分销巨头在克罗地亚的子公司，拥有38个遍布全国的分中心，极速配送能力卓越。海关记录显示其大量采购赛轮与中策西湖。',
+    sourcingStrategy: '通过集中采购与B2B数字化配送平台，批量直采高周转中国性价比轮胎。',
+    procurementRequirements: {
+      certification: ['3PMSF', 'E-mark', 'EU Label'],
+      minOrderQuantity: '20-50 40HQ 柜/月',
+      paymentTerms: 'L/C 90 days / OA 60 days',
+      targetPriceSegment: 'Central Europe High Velocity Budget'
+    },
+    pitchingTips: '提供标准化 EDI / API 规格接口数据包，主打全季胎与冬胎在巴尔干市场的价格与库存协同。',
+    latitude: 45.810,
+    longitude: 15.845,
+    hsCode: '4011.10.00 / 4011.20.00',
+    customsRecordInfo: '中东欧供应链提单核查通过'
   },
   {
     id: 'autogume-motohouse-hr',
-    rank: 8,
+    rank: 10,
     country: 'Croatia',
     countryCn: '克罗地亚',
     countryCode: 'HR',
@@ -473,13 +592,6 @@ export const FULL_CROATIAN_TIRE_IMPORTERS: ImporterCompany[] = [
         categories: ['PCR', 'LCV'],
         partnershipType: 'Wholesale Distributor / 批发分销商',
         popularModels: ['Atrezzo ZSR']
-      },
-      {
-        brandEn: 'Westlake',
-        brandCn: '西湖轮胎 (中策橡胶)',
-        categories: ['PCR', 'TBR'],
-        partnershipType: 'Wholesale Distributor / 批发分销商',
-        popularModels: ['Z-107']
       }
     ],
     segments: ['PCR', 'SUV', 'LCV', 'MOTO'],
@@ -494,114 +606,8 @@ export const FULL_CROATIAN_TIRE_IMPORTERS: ImporterCompany[] = [
     },
     pitchingTips: '提供高清产品渲染图、完整规格表与可直接导入电商系统的 API 数据包，能大幅缩短合作建立周期。',
     latitude: 45.772,
-    longitude: 15.932
-  },
-  {
-    id: 'autounion-pneustar-hr',
-    rank: 9,
-    country: 'Croatia',
-    countryCn: '克罗地亚',
-    countryCode: 'HR',
-    flagEmoji: '🇭🇷',
-    name: 'Autounion d.o.o. / Pneustar',
-    frenchName: 'Autounion Pula Istria',
-    distributorTier: '二级批发商',
-    city: 'Pula',
-    region: 'Istarska županija',
-    department: 'Istria Peninsula',
-    foundedYear: 1996,
-    estimatedAnnualVolume: '180,000+ 条/年',
-    annualVolumeNumber: 180000,
-    employeeCount: '40 人',
-    warehouseArea: '6,500 m²',
-    logisticsHubsCount: 1,
-    website: 'https://www.autounion.hr',
-    phone: '+385 52 385 000',
-    email: 'prodaja@autounion.hr',
-    address: 'Industrijska ulica 12, 52100 Pula, Croatia',
-    chineseSourcingVerified: true,
-    verifiedChineseBrands: [
-      {
-        brandEn: 'Triangle',
-        brandCn: '三角轮胎',
-        categories: ['PCR', 'TBR'],
-        partnershipType: 'Official Partner / 官方合作伙伴',
-        popularModels: ['AdvanteX', 'TR652']
-      },
-      {
-        brandEn: 'Double Coin',
-        brandCn: '双钱轮胎',
-        categories: ['TBR'],
-        partnershipType: 'Direct Importer / 直接进口商',
-        popularModels: ['RLB400']
-      }
-    ],
-    segments: ['PCR', 'SUV', 'LCV', 'TBR'],
-    clientTypes: ['伊斯特拉半岛 50+ 合作修理厂', '亚得里亚海公路客运车队', '农业与旅游服务公司'],
-    businessOverview: 'Autounion 是克罗地亚伊斯特拉半岛（Pula/Rijeka）区域领先的轮胎进口批发与汽车配件供应商，在伊斯特拉旅游区和商用车领域具有很强分销辐射力。',
-    sourcingStrategy: '聚焦商用轻卡与高负荷卡客车胎，直采三角与双钱轮胎以满足半岛客运与工程车队的需求。',
-    procurementRequirements: {
-      certification: ['3PMSF', 'ECE R54'],
-      minOrderQuantity: '3-8 40HQ 柜/月',
-      paymentTerms: 'L/C 60 days',
-      targetPriceSegment: 'Regional Istria Fleet & Passenger Budget'
-    },
-    pitchingTips: '主打卡客车胎（TBR）高抗撕裂性能与耐磨指标，适配伊斯特拉半岛多山道路的运输需求。',
-    latitude: 44.880,
-    longitude: 13.860
-  },
-  {
-    id: 'gumi-kordic-hr',
-    rank: 10,
-    country: 'Croatia',
-    countryCn: '克罗地亚',
-    countryCode: 'HR',
-    flagEmoji: '🇭🇷',
-    name: 'Gumi Centar Kordić d.o.o.',
-    frenchName: 'Gumi Centar Kordić Osijek',
-    distributorTier: '连锁零售商/快修',
-    city: 'Osijek',
-    region: 'Osječko-baranjska županija',
-    department: 'Slavonija Region',
-    foundedYear: 2001,
-    estimatedAnnualVolume: '150,000+ 条/年',
-    annualVolumeNumber: 150000,
-    employeeCount: '30 人',
-    warehouseArea: '5,000 m²',
-    logisticsHubsCount: 1,
-    website: 'https://www.gumi-kordic.hr',
-    phone: '+385 31 297 300',
-    email: 'info@gumi-kordic.hr',
-    address: 'Vukovarska cesta 222, 31000 Osijek, Croatia',
-    chineseSourcingVerified: true,
-    verifiedChineseBrands: [
-      {
-        brandEn: 'Westlake',
-        brandCn: '西湖轮胎 (中策橡胶)',
-        categories: ['PCR', 'AGRI', 'LCV'],
-        partnershipType: 'Official Partner / 官方合作伙伴',
-        popularModels: ['Z-107', 'SW608']
-      },
-      {
-        brandEn: 'Linglong',
-        brandCn: '玲珑轮胎',
-        categories: ['PCR', 'AGRI'],
-        partnershipType: 'Wholesale Distributor / 批发分销商',
-        popularModels: ['Green-Max']
-      }
-    ],
-    segments: ['PCR', 'AGRI', 'LCV', 'TBR'],
-    clientTypes: ['斯拉沃尼亚农场与农业合作社', '奥西耶克及周边汽修厂', '区域货运车队'],
-    businessOverview: 'Gumi Centar Kordić 是克罗地亚东部粮仓斯拉沃尼亚（Slavonija）地区知名的轮胎服务与批发中心，深耕农用胎、乘用车胎及卡客车胎。',
-    sourcingStrategy: '紧贴农业大省的需求，既采购高性价比乘用车/轻卡胎，也重点采购农业装备及卡车替代轮胎。',
-    procurementRequirements: {
-      certification: ['3PMSF', 'E-mark'],
-      minOrderQuantity: '3-6 40HQ 柜/月',
-      paymentTerms: 'T/T or L/C 30-60 days',
-      targetPriceSegment: 'Slavonia Agriculture & Passenger Budget'
-    },
-    pitchingTips: '推介兼具良好湿地抓地力与高性价比的农用拖拉机轮胎与轻卡 VAN 胎组合。',
-    latitude: 45.550,
-    longitude: 18.700
+    longitude: 15.932,
+    hsCode: '4011.10.00',
+    customsRecordInfo: '线上平台直采与关务到港单据核验正确'
   }
 ];

@@ -44,8 +44,16 @@ export const FranceMapVisualizer: React.FC<FranceMapVisualizerProps> = ({ onSele
   const filteredImporters = useMemo(() => {
     const sourceList = importers || ALL_EUROPEAN_TIRE_IMPORTERS;
     return sourceList.filter((imp) => {
-      if (selectedCountry !== 'ALL' && imp.country !== selectedCountry) {
-        return false;
+      if (selectedCountry !== 'ALL') {
+        const isMatch =
+          imp.country === selectedCountry ||
+          (selectedCountry === 'France' && (imp.countryCn === '法国' || imp.countryCode === 'FR')) ||
+          (selectedCountry === 'Croatia' && (imp.countryCn === '克罗地亚' || imp.countryCode === 'HR')) ||
+          (selectedCountry === 'Slovenia' && (imp.countryCn === '斯洛文尼亚' || imp.countryCode === 'SI')) ||
+          (selectedCountry === 'Russia' && (imp.countryCn === '俄罗斯' || imp.countryCode === 'RU')) ||
+          (selectedCountry === 'Ukraine' && (imp.countryCn === '乌克兰' || imp.countryCode === 'UA'));
+
+        if (!isMatch) return false;
       }
       if (selectedSegment !== 'ALL' && !imp.segments.includes(selectedSegment as TireSegment)) {
         return false;

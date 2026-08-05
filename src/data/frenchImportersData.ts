@@ -1382,5 +1382,59 @@ export const FULL_FRENCH_TIRE_IMPORTERS: ImporterCompany[] = [
     pitchingTips: '主打高性价比四季胎与高流转规格。',
     latitude: 45.439,
     longitude: 4.387
+  },
+  {
+    id: 'ideal-pneu',
+    rank: 24,
+    distributorTier: '连锁零售商/快修',
+    country: 'France',
+    countryCn: '法国',
+    countryCode: 'FR',
+    flagEmoji: '🇫🇷',
+    name: 'Ideal Pneu (Idéal Pneu SAS)',
+    frenchName: 'Idéal Pneu SAS',
+    city: 'Lyon / Saint-Priest',
+    region: 'Auvergne-Rhône-Alpes',
+    department: 'Rhône (69)',
+    foundedYear: 2008,
+    estimatedAnnualVolume: '420,000+ 条/年',
+    annualVolumeNumber: 420000,
+    employeeCount: '45 人',
+    warehouseArea: '10,000 m²',
+    logisticsHubsCount: 2,
+    website: 'https://www.idealpneu.fr',
+    phone: '+33 (0)4 78 90 00 00',
+    email: 'contact@idealpneu.fr',
+    address: '12 Rue Aristide Briand, 69800 Saint-Priest, France',
+    chineseSourcingVerified: true,
+    verifiedChineseBrands: [
+      {
+        brandEn: 'Sailun',
+        brandCn: '赛轮轮胎',
+        categories: ['PCR', 'SUV', 'LCV'],
+        partnershipType: 'Official Partner / 官方合作伙伴',
+        popularModels: ['Atrezzo ZSR', 'Ice Blazer WST3']
+      },
+      {
+        brandEn: 'Tracmax',
+        brandCn: '创密斯轮胎',
+        categories: ['PCR', 'LCV'],
+        partnershipType: 'Direct Importer / 直接进口商',
+        popularModels: ['X-Privilo TX3']
+      }
+    ],
+    segments: ['PCR', 'SUV', 'LCV'],
+    clientTypes: ['里昂及罗讷-阿尔卑斯大区快修中心', '车队B2B零售网点'],
+    businessOverview: 'Idéal Pneu 是总部位于里昂地区 (Saint-Priest) 的知名专业轮胎连锁及快修批发服务商，拥有大型仓储与自营快修门店网点，在罗讷-阿尔卑斯地区具有极高知名度与分销覆盖率。',
+    sourcingStrategy: '聚焦中端高性价比 PCR / SUV 四季胎与冬胎，直接采购赛轮与创密斯等优质中国品牌。',
+    procurementRequirements: {
+      certification: ['3PMSF 欧标冬胎认证', 'REACH 环保认证', 'ECE R117'],
+      minOrderQuantity: '3-5 40HQ 柜/月',
+      paymentTerms: 'L/C 60 days / T/T',
+      targetPriceSegment: 'Regional Quick-Replenish Quality Budget'
+    },
+    pitchingTips: '主打高性价比 3PMSF 冬胎、四季胎及精准混合集装箱发货周转。',
+    latitude: 45.696,
+    longitude: 4.945
   }
 ];

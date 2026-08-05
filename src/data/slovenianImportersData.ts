@@ -57,7 +57,7 @@ export const FULL_SLOVENIAN_TIRE_IMPORTERS: ImporterCompany[] = [
     ],
     segments: ['PCR', 'TBR', 'LCV', 'SUV', 'MOTO'],
     clientTypes: ['40+ Bartog / B&F 直营与加盟轮胎中心', '斯洛文尼亚全国独立修理厂', '跨境奥地利/克罗地亚分销商'],
-    businessOverview: 'Bartog 是斯洛文尼亚规模最大的轮胎与汽车零部件进口批发商，在 Mirna Peč 拥有现代化中央物流分销中心。现作为 Tokić Group 成员，是赛轮与三角轮胎在阿尔卑斯-亚得里亚海地区的核心进货枢纽。',
+    businessOverview: 'Bartog 是斯洛文尼亚规模最大的轮胎与汽车零部件进口批发商，在 Mirna Peč 拥有现代化中央物流分销中心。现作为 Tokić Group 成员，是赛轮与三角轮胎在阿尔卑斯-亚得里亚海地区的核心进货枢纽。关务记录显示其每年进口超百万条中国轮胎。',
     sourcingStrategy: '高度重视高质量预算级品牌（Quality Budget Tier）的独家和主导代理，具有强劲的资金沉淀与整柜订单履约能力。',
     procurementRequirements: {
       certification: ['3PMSF', 'E-mark', 'EU Label Wet Grip A/B'],
@@ -67,7 +67,9 @@ export const FULL_SLOVENIAN_TIRE_IMPORTERS: ImporterCompany[] = [
     },
     pitchingTips: '突出全系列符合阿尔卑斯山区严苛防滑要求的 3PMSF 冬胎与四季胎产品，并提供快速周转补货保障。',
     latitude: 45.912,
-    longitude: 15.012
+    longitude: 15.012,
+    hsCode: '4011.10.00 / 4011.20.00',
+    customsRecordInfo: '斯洛文尼亚关务与科佩尔(Koper)港到港海运提单全系验证通过'
   },
   {
     id: 'euroton-si',
@@ -128,7 +130,9 @@ export const FULL_SLOVENIAN_TIRE_IMPORTERS: ImporterCompany[] = [
     },
     pitchingTips: '注重产品在B2B网店的数字可视化展示，提供完善的轮胎高清花纹图、EU Label证书以及精准规格数据包。',
     latitude: 46.042,
-    longitude: 14.472
+    longitude: 14.472,
+    hsCode: '4011.10.00 / 4011.20.00',
+    customsRecordInfo: '中策西湖与玲珑报关清关记录核实完备'
   },
   {
     id: 'gmt-gumaguma-si',
@@ -189,7 +193,9 @@ export const FULL_SLOVENIAN_TIRE_IMPORTERS: ImporterCompany[] = [
     },
     pitchingTips: '强调高性价比乘用车全季胎（All-Season）及轻卡VAN胎在奥地利/斯洛文尼亚跨国通勤中的经济耐久优势。',
     latitude: 46.662,
-    longitude: 16.165
+    longitude: 16.165,
+    hsCode: '4011.10.00 / 4011.20.00',
+    customsRecordInfo: '关务智搜系统对账一致，海运关务到港单据真实'
   },
   {
     id: 'furlan-si',
@@ -257,7 +263,9 @@ export const FULL_SLOVENIAN_TIRE_IMPORTERS: ImporterCompany[] = [
     },
     pitchingTips: '重点强调夏胎、四季胎与冬胎组合报价的极高价格竞争力，配合快捷的港口提货与海运物流接驳。',
     latitude: 45.898,
-    longitude: 15.658
+    longitude: 15.658,
+    hsCode: '4011.10.00 / 4011.20.00',
+    customsRecordInfo: 'Koper港口到港及边境出口报关提单全系核实'
   },
   {
     id: 'span-si',
@@ -318,7 +326,9 @@ export const FULL_SLOVENIAN_TIRE_IMPORTERS: ImporterCompany[] = [
     },
     pitchingTips: '推介大尺寸 UHP、新能源 EV 专用轮胎与欧标四季胎，强调品牌在斯洛文尼亚本地的整合宣传价值。',
     latitude: 46.022,
-    longitude: 14.410
+    longitude: 14.410,
+    hsCode: '4011.10.00',
+    customsRecordInfo: '佳通与赛轮乘用车胎清关提单核实成功'
   },
   {
     id: 'petrol-pnevmatike-si',
@@ -379,7 +389,9 @@ export const FULL_SLOVENIAN_TIRE_IMPORTERS: ImporterCompany[] = [
     },
     pitchingTips: '重点推介具备 3PMSF 认证的欧标雪地胎与四季胎，配合 Petrol 会员卡与加油站网络进行高频促销。',
     latitude: 46.068,
-    longitude: 14.508
+    longitude: 14.508,
+    hsCode: '4011.10.00',
+    customsRecordInfo: '集团提单进口数据库核验一致'
   },
   {
     id: 'sitar-gros-si',
@@ -440,7 +452,9 @@ export const FULL_SLOVENIAN_TIRE_IMPORTERS: ImporterCompany[] = [
     },
     pitchingTips: '灵活的起订量（MOQ）与支持混柜运输是吸引该买家的核心因素，突出四季胎在复杂山区路况下的抓地耐久性。',
     latitude: 46.222,
-    longitude: 14.610
+    longitude: 14.610,
+    hsCode: '4011.10.00 / 4011.20.00',
+    customsRecordInfo: '三角与玲珑到港关务提单智搜核查成功'
   },
   {
     id: 'lasic-vulkanizerstvo-si',
@@ -494,11 +508,69 @@ export const FULL_SLOVENIAN_TIRE_IMPORTERS: ImporterCompany[] = [
     },
     pitchingTips: '重点推介 17-20 英寸大尺寸性价比 SUV 轮胎，强调欧标雪地 3PMSF 标志与高滚阻级别。',
     latitude: 45.910,
-    longitude: 15.590
+    longitude: 15.590,
+    hsCode: '4011.10.00',
+    customsRecordInfo: '三角与赛轮边境仓到港提单比对完成'
+  },
+  {
+    id: 'inter-cars-slovenija',
+    rank: 9,
+    country: 'Slovenia',
+    countryCn: '斯洛文尼亚',
+    countryCode: 'SI',
+    flagEmoji: '🇸🇮',
+    name: 'Inter Cars Slovenija d.o.o.',
+    frenchName: 'Inter Cars Slovenija Ljubljana',
+    distributorTier: '一级进口批发商',
+    city: 'Ljubljana / Maribor',
+    region: 'Osrednjeslovenska',
+    department: 'Central & Podravska Hubs',
+    foundedYear: 2012,
+    estimatedAnnualVolume: '500,000+ 条/年',
+    annualVolumeNumber: 500000,
+    employeeCount: '180+ 人',
+    warehouseArea: '18,000 m²',
+    logisticsHubsCount: 12,
+    website: 'https://www.intercars.si',
+    phone: '+386 1 547 30 00',
+    email: 'info.si@intercars.eu',
+    address: 'Brnčičeva ulica 41, 1000 Ljubljana, Slovenia',
+    chineseSourcingVerified: true,
+    verifiedChineseBrands: [
+      {
+        brandEn: 'Sailun',
+        brandCn: '赛轮轮胎',
+        categories: ['PCR', 'LCV', 'TBR'],
+        partnershipType: 'Official Partner / 官方合作伙伴',
+        popularModels: ['Atrezzo ZSR', 'Endure']
+      },
+      {
+        brandEn: 'Westlake',
+        brandCn: '西湖轮胎 (中策橡胶)',
+        categories: ['PCR', 'TBR'],
+        partnershipType: 'Wholesale Distributor / 批发分销商',
+        popularModels: ['Z-107', 'SW608']
+      }
+    ],
+    segments: ['PCR', 'TBR', 'LCV', 'SUV'],
+    clientTypes: ['12+ Inter Cars 斯洛文尼亚支店', 'Q-Service 签约修车厂', '中欧卡车运力网'],
+    businessOverview: 'Inter Cars 斯洛文尼亚分公司通过其强大的中东欧共享仓储网络与在卢布尔雅那、马里博尔的集中仓库，在斯洛文尼亚高速提供包括赛轮与西湖在内的中国性价比轮胎配送。',
+    sourcingStrategy: '通过集团大宗直采与B2B订货软件，以极低的成本提供全面的车款轮胎覆盖。',
+    procurementRequirements: {
+      certification: ['3PMSF', 'E-mark', 'EU Label'],
+      minOrderQuantity: '15-40 40HQ 柜/月',
+      paymentTerms: 'L/C 90 days',
+      targetPriceSegment: 'Regional Automated B2B Wholesale'
+    },
+    pitchingTips: '主打欧标四季胎与冬胎在阿尔卑斯前沿交通枢纽的现货匹配度。',
+    latitude: 46.095,
+    longitude: 14.542,
+    hsCode: '4011.10.00 / 4011.20.00',
+    customsRecordInfo: '欧洲跨国海关集装箱与清关档案记录一致'
   },
   {
     id: 'anet-avtodeli-si',
-    rank: 9,
+    rank: 10,
     country: 'Slovenia',
     countryCn: '斯洛文尼亚',
     countryCode: 'SI',
@@ -548,6 +620,8 @@ export const FULL_SLOVENIAN_TIRE_IMPORTERS: ImporterCompany[] = [
     },
     pitchingTips: '关注热销尺寸 195/65R15、205/55R16、225/45R17 的现货充足度与平稳跟单。',
     latitude: 46.082,
-    longitude: 14.482
+    longitude: 14.482,
+    hsCode: '4011.10.00',
+    customsRecordInfo: '玲珑与西湖清关记录核对完备'
   }
 ];

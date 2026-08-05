@@ -329,9 +329,15 @@ export const AddInfoView: React.FC<AddInfoViewProps> = ({
                         {previewCompany.frenchName} • {previewCompany.city}, {previewCompany.countryCn}
                       </p>
                     </div>
-                    <span className="bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-[11px] font-semibold px-2 py-0.5 rounded-md shrink-0">
-                      AI 比对已核验
-                    </span>
+                    {previewCompany.chineseSourcingVerified ? (
+                      <span className="bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-[11px] font-semibold px-2 py-0.5 rounded-md shrink-0">
+                        已采买中国轮胎
+                      </span>
+                    ) : (
+                      <span className="bg-sky-500/20 text-sky-300 border border-sky-500/30 text-[11px] font-semibold px-2 py-0.5 rounded-md shrink-0">
+                        潜在目标 (尚无中国采买)
+                      </span>
+                    )}
                   </div>
 
                   {/* Core Attributes */}

@@ -24,10 +24,59 @@ const getInitialVisitPlan = (): Record<string, VisitPlanItem> => {
   return {};
 };
 
+const sanitizeCompany = (c: ImporterCompany): ImporterCompany => {
+  let countryName = c.country;
+  let countryCn = c.countryCn || '法国';
+  let countryCode = c.countryCode || 'FR';
+  let flagEmoji = c.flagEmoji || '🇫🇷';
+
+  const cLower = `${c.country || ''} ${c.countryCn || ''} ${c.countryCode || ''}`.toLowerCase();
+  if (cLower.includes('france') || cLower.includes('法') || c.countryCode === 'FR') {
+    countryName = 'France';
+    countryCn = '法国';
+    countryCode = 'FR';
+    flagEmoji = '🇫🇷';
+  } else if (cLower.includes('croatia') || cLower.includes('克罗地亚') || c.countryCode === 'HR') {
+    countryName = 'Croatia';
+    countryCn = '克罗地亚';
+    countryCode = 'HR';
+    flagEmoji = '🇭🇷';
+  } else if (cLower.includes('slovenia') || cLower.includes('斯洛文尼亚') || c.countryCode === 'SI') {
+    countryName = 'Slovenia';
+    countryCn = '斯洛文尼亚';
+    countryCode = 'SI';
+    flagEmoji = '🇸🇮';
+  } else if (cLower.includes('russia') || cLower.includes('俄') || c.countryCode === 'RU') {
+    countryName = 'Russia';
+    countryCn = '俄罗斯';
+    countryCode = 'RU';
+    flagEmoji = '🇷🇺';
+  } else if (cLower.includes('ukraine') || cLower.includes('乌') || c.countryCode === 'UA') {
+    countryName = 'Ukraine';
+    countryCn = '乌克兰';
+    countryCode = 'UA';
+    flagEmoji = '🇺🇦';
+  }
+
+  return {
+    ...c,
+    country: countryName,
+    countryCn,
+    countryCode,
+    flagEmoji,
+    chineseSourcingVerified: c.chineseSourcingVerified !== undefined ? c.chineseSourcingVerified : true,
+  };
+};
+
 const getInitialCustomImporters = (): ImporterCompany[] => {
   try {
     const saved = localStorage.getItem(CUSTOM_IMPORTERS_KEY);
-    if (saved) return JSON.parse(saved);
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      if (Array.isArray(parsed)) {
+        return parsed.map(sanitizeCompany);
+      }
+    }
   } catch (e) {
     console.error('Failed to load custom importers', e);
   }
@@ -58,7 +107,8 @@ export default function App() {
   }, [customImporters]);
 
   const handleAddCompany = (newCompany: ImporterCompany) => {
-    setCustomImporters((prev) => [newCompany, ...prev.filter((c) => c.id !== newCompany.id)]);
+    const sanitized = sanitizeCompany(newCompany);
+    setCustomImporters((prev) => [sanitized, ...prev.filter((c) => c.id !== sanitized.id)]);
   };
 
   const handleRemoveCustomImporter = (id: string) => {
@@ -183,7 +233,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
           <div>
             <span className="font-semibold text-slate-300">欧洲五国（法🇫🇷·克🇭🇷·斯🇸🇮·俄🇷🇺·乌🇺🇦）中国轮胎进口商与关务名录系统</span>
-            <span className="ml-2 text-slate-500 hidden sm:inline">• 关务流水核验：无中国轮胎采买记录者严格不入榜</span>
+            <span className="ml-2 text-slate-500 hidden sm:inline">• 关务与智搜核验：涵盖已采买中国品牌客户及潜在空白目标客户</span>
           </div>
           <div className="text-slate-500 text-[11px] sm:text-xs">
             行业合规：信息基于海关提单、各国民营车后市场分销网络及公共商业登记数据核定

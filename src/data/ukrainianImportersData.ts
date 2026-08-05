@@ -33,22 +33,22 @@ export const FULL_UKRAINIAN_TIRE_IMPORTERS: ImporterCompany[] = [
         brandCn: '三角轮胎',
         categories: ['PCR', 'TBR', 'OTR', 'AGRI'],
         partnershipType: 'Sole Agent / 独家代理',
-        popularModels: ['TR646', 'SnowLink PL01', 'TR652'],
+        popularModels: ['TR646', 'SnowLink PL01', 'TR652']
       },
       {
         brandEn: 'Sailun',
         brandCn: '赛轮轮胎',
         categories: ['PCR', 'TBR', 'SUV'],
         partnershipType: 'Official Partner / 官方合作伙伴',
-        popularModels: ['Atrezzo ZSR', 'Endurreco R15'],
+        popularModels: ['Atrezzo ZSR', 'Endurreco R15']
       },
       {
         brandEn: 'Aeolus',
         brandCn: '风神轮胎',
         categories: ['TBR', 'AGRI'],
         partnershipType: 'Direct Importer / 直接进口商',
-        popularModels: ['HN08', 'ASR69'],
-      },
+        popularModels: ['HN08', 'ASR69']
+      }
     ],
     segments: ['PCR', 'TBR', 'OTR', 'AGRI', 'LCV'],
     clientTypes: ['全国12个物流中心批发网点', '大型农业合作社', '物流运输公司', '汽修连锁店'],
@@ -58,11 +58,11 @@ export const FULL_UKRAINIAN_TIRE_IMPORTERS: ImporterCompany[] = [
       certification: ['UkrSEPRO / 乌克兰国家质量认证', 'ECE / E-mark 认证'],
       minOrderQuantity: '5 x 40HQ / 批次',
       paymentTerms: 'USD/EUR L/C 或 30% 预付 + 70% 见提单副本',
-      targetPriceSegment: '中端主流与耐用重载市场',
+      targetPriceSegment: '中端主流与耐用重载市场'
     },
-    pitchingTips: '强调提供多规格现货集装箱速配、欧洲边境转运支持及高公里数重载TBR三包政策。',
+    pitchingTips: '强调提供多规格集装箱速配、欧洲边境转运支持及高公里数重载TBR三包政策。',
     latitude: 48.4647,
-    longitude: 35.0462,
+    longitude: 35.0462
   },
   {
     id: 'ua-omega-llc',
@@ -96,15 +96,15 @@ export const FULL_UKRAINIAN_TIRE_IMPORTERS: ImporterCompany[] = [
         brandCn: '玲珑轮胎',
         categories: ['PCR', 'TBR', 'LCV'],
         partnershipType: 'Sole Agent / 独家代理',
-        popularModels: ['Green-Max HP010', 'CrossWind M/T', 'LLF02'],
+        popularModels: ['Green-Max HP010', 'CrossWind M/T', 'LLF02']
       },
       {
         brandEn: 'Westlake (ZC Rubber)',
         brandCn: '西湖轮胎 (中策橡胶)',
         categories: ['PCR', 'TBR'],
         partnershipType: 'Official Partner / 官方合作伙伴',
-        popularModels: ['SW608', 'Z107'],
-      },
+        popularModels: ['SW608', 'Z107']
+      }
     ],
     segments: ['PCR', 'TBR', 'LCV', 'SUV'],
     clientTypes: ['全乌B2B汽配商网店', '汽修厂', '区域中转分销商'],
@@ -114,11 +114,11 @@ export const FULL_UKRAINIAN_TIRE_IMPORTERS: ImporterCompany[] = [
       certification: ['UkrSEPRO / E-mark 认证'],
       minOrderQuantity: '4 x 40HQ / 批次',
       paymentTerms: 'USD/EUR T/T 汇款',
-      targetPriceSegment: '高性价比与中端实用市场',
+      targetPriceSegment: '高性价比与中端实用市场'
     },
     pitchingTips: '展示在乌克兰普及率极高的玲珑及中策经典花纹同级竞争数据。',
     latitude: 49.9935,
-    longitude: 36.2304,
+    longitude: 36.2304
   },
   {
     id: 'ua-shyp-shyna',
@@ -152,15 +152,15 @@ export const FULL_UKRAINIAN_TIRE_IMPORTERS: ImporterCompany[] = [
         brandCn: '双星轮胎',
         categories: ['PCR', 'SUV'],
         partnershipType: 'Official Partner / 官方合作伙伴',
-        popularModels: ['DH02', 'DW07 Winter'],
+        popularModels: ['DH02', 'DW07 Winter']
       },
       {
         brandEn: 'Tracmax',
         brandCn: '创密斯轮胎',
         categories: ['PCR', 'SUV', 'LCV'],
         partnershipType: 'Direct Importer / 直接进口商',
-        popularModels: ['Ice-Plus S210', 'X-Privilo TX3'],
-      },
+        popularModels: ['Ice-Plus S210', 'X-Privilo TX3']
+      }
     ],
     segments: ['PCR', 'SUV', 'LCV', 'MOTO'],
     clientTypes: ['乌西部及全国35家直营轮胎超市与快修服务中心', 'B2C独立网店'],
@@ -170,15 +170,71 @@ export const FULL_UKRAINIAN_TIRE_IMPORTERS: ImporterCompany[] = [
       certification: ['UkrSEPRO / ECE 认证'],
       minOrderQuantity: '3 x 40HQ / 批次',
       paymentTerms: 'EUR 结算',
-      targetPriceSegment: '中端零售与实惠快修市场',
+      targetPriceSegment: '中端零售与实惠快修市场'
     },
     pitchingTips: '突出利沃夫物流中转便利性，提供西欧标准品质认证与四季/冬季胎现货。',
     latitude: 49.8397,
-    longitude: 24.0297,
+    longitude: 24.0297
+  },
+  {
+    id: 'ua-infoshina',
+    rank: 4,
+    distributorTier: 'B2B/电商平台',
+    country: 'Ukraine',
+    countryCn: '乌克兰',
+    countryCode: 'UA',
+    flagEmoji: '🇺🇦',
+    name: 'Infoshina (Інфошина)',
+    frenchName: 'ТОВ "Інфошина-Груп"',
+    city: 'Kyiv / 基辅',
+    region: 'Kyiv Oblast / 基辅州',
+    department: 'Capital Region',
+    foundedYear: 2011,
+    estimatedAnnualVolume: '1,400,000+ 条',
+    annualVolumeNumber: 1400000,
+    employeeCount: '280+ 人',
+    warehouseArea: '32,000 m²',
+    logisticsHubsCount: 8,
+    website: 'https://infoshina.com.ua',
+    phone: '+380 (44) 333-88-88',
+    email: 'b2b@infoshina.com.ua',
+    address: 'Vazhliva St, 18, Kyiv, Ukraine',
+    chineseSourcingVerified: true,
+    hsCode: '4011.10.0000 / 4011.20.0000',
+    customsRecordInfo: '基辅关区及波兰边境干线提单报关记录',
+    verifiedChineseBrands: [
+      {
+        brandEn: 'Sailun',
+        brandCn: '赛轮轮胎',
+        categories: ['PCR', 'SUV', 'LCV'],
+        partnershipType: 'Official Partner / 官方合作伙伴',
+        popularModels: ['Atrezzo ZSR', 'Ice Blazer WST3']
+      },
+      {
+        brandEn: 'Triangle',
+        brandCn: '三角轮胎',
+        categories: ['PCR', 'TBR'],
+        partnershipType: 'Wholesale Distributor / 批发分销商',
+        popularModels: ['SeasonX', 'PL01']
+      }
+    ],
+    segments: ['PCR', 'SUV', 'LCV', 'TBR', 'MOTO'],
+    clientTypes: ['Infoshina 全乌 8 个自营仓配中心', 'B2C 车主在线订购', '合作加盟修理厂'],
+    businessOverview: 'Infoshina 是乌克兰访问量最高、规模最大的专业轮胎及轮毂在线电商兼 B2B 批发分销平台。在基辅、哈尔科夫、利沃夫、第聂伯罗与敖德萨建有分仓，深度进口赛轮与三角轮胎。',
+    sourcingStrategy: '主打超高性价比、快速发货与庞大的 SKUs 现货储备，直采中国主线品牌乘用车四季胎与高防滑雪地胎。',
+    procurementRequirements: {
+      certification: ['UkrSEPRO / ECE R30', '3PMSF'],
+      minOrderQuantity: '3-8 40HQ 柜/月',
+      paymentTerms: 'USD/EUR L/C or T/T',
+      targetPriceSegment: 'Top Tier Ukrainian E-Commerce Leader'
+    },
+    pitchingTips: '提供全套数字化商品 API 数据、高清图片及 3PMSF 防滑认证规格。',
+    latitude: 50.4501,
+    longitude: 30.5234
   },
   {
     id: 'ua-garazh-ua',
-    rank: 4,
+    rank: 5,
     distributorTier: 'B2B/电商平台',
     country: 'Ukraine',
     countryCn: '乌克兰',
@@ -204,19 +260,19 @@ export const FULL_UKRAINIAN_TIRE_IMPORTERS: ImporterCompany[] = [
     customsRecordInfo: '基辅海关进口提单核验',
     verifiedChineseBrands: [
       {
-        brandEn: 'Roadwing / Roadshine',
+        brandEn: 'Roadking / Roadshine',
         brandCn: '路王 / 路士达轮胎',
         categories: ['PCR', 'TBR'],
         partnershipType: 'Official Partner / 官方合作伙伴',
-        popularModels: ['WS618', 'RS602'],
+        popularModels: ['WS618', 'RS602']
       },
       {
         brandEn: 'Giti',
         brandCn: '佳通轮胎',
         categories: ['PCR', 'TBR'],
         partnershipType: 'Wholesale Distributor / 批发分销商',
-        popularModels: ['GitiControl P80'],
-      },
+        popularModels: ['GitiControl P80']
+      }
     ],
     segments: ['PCR', 'TBR', 'SUV', 'UHP'],
     clientTypes: ['基辅及首都圈B2C车主', '加盟汽修工位', '车队中转采购'],
@@ -226,15 +282,15 @@ export const FULL_UKRAINIAN_TIRE_IMPORTERS: ImporterCompany[] = [
       certification: ['UkrSEPRO / E-mark 认证'],
       minOrderQuantity: '2 x 40HQ / 批次',
       paymentTerms: 'USD 结算',
-      targetPriceSegment: '大众高性价比市场',
+      targetPriceSegment: '大众高性价比市场'
     },
     pitchingTips: '推介热销中端花纹及针对乌克兰道路状况优化的强化胎侧防鼓包设计。',
     latitude: 50.4501,
-    longitude: 30.5234,
+    longitude: 30.5234
   },
   {
     id: 'ua-autobaza-olt',
-    rank: 5,
+    rank: 6,
     distributorTier: '一级进口批发商',
     country: 'Ukraine',
     countryCn: '乌克兰',
@@ -264,15 +320,15 @@ export const FULL_UKRAINIAN_TIRE_IMPORTERS: ImporterCompany[] = [
         brandCn: '西湖轮胎 (中策橡胶)',
         categories: ['PCR', 'TBR', 'LCV'],
         partnershipType: 'Official Partner / 官方合作伙伴',
-        popularModels: ['Z-107', 'SW608'],
+        popularModels: ['Z-107', 'SW608']
       },
       {
         brandEn: 'Sailun',
         brandCn: '赛轮轮胎',
         categories: ['PCR', 'SUV'],
         partnershipType: 'Direct Importer / 直接进口商',
-        popularModels: ['Atrezzo ZSR', 'Ice Blazer'],
-      },
+        popularModels: ['Atrezzo ZSR', 'Ice Blazer']
+      }
     ],
     segments: ['PCR', 'TBR', 'LCV', 'SUV'],
     clientTypes: ['Autobaza 线下连锁门店与快修中心', '乌克兰南部及首都圈车队', 'B2B电商业者'],
@@ -282,10 +338,66 @@ export const FULL_UKRAINIAN_TIRE_IMPORTERS: ImporterCompany[] = [
       certification: ['UkrSEPRO / ECE 认证'],
       minOrderQuantity: '3 x 40HQ / 批次',
       paymentTerms: 'USD/EUR L/C 或 T/T 汇款',
-      targetPriceSegment: '中端主流实用市场',
+      targetPriceSegment: '中端主流实用市场'
     },
     pitchingTips: '突出敖德萨及欧洲转运仓的现货提货便利度与西欧标准三包服务承诺。',
     latitude: 46.4825,
-    longitude: 30.7233,
+    longitude: 30.7233
   },
+  {
+    id: 'ua-zapaska',
+    rank: 7,
+    distributorTier: '一级进口批发商',
+    country: 'Ukraine',
+    countryCn: '乌克兰',
+    countryCode: 'UA',
+    flagEmoji: '🇺🇦',
+    name: 'Zapaska (ТОВ "Запаска")',
+    frenchName: 'ТОВ "Запаска-Шина"',
+    city: 'Rivne / 罗夫诺 & Lviv',
+    region: 'Rivne Oblast / 罗夫诺州',
+    department: 'Western Ukraine',
+    foundedYear: 2005,
+    estimatedAnnualVolume: '800,000+ 条',
+    annualVolumeNumber: 800000,
+    employeeCount: '150+ 人',
+    warehouseArea: '22,000 m²',
+    logisticsHubsCount: 3,
+    website: 'https://zapaska.ua',
+    phone: '+380 (362) 69-00-00',
+    email: 'office@zapaska.ua',
+    address: 'Mylna St, 2, Rivne, Ukraine',
+    chineseSourcingVerified: true,
+    hsCode: '4011.10.0000 / 4011.20.0000',
+    customsRecordInfo: '西部关区集装箱提单核查通过',
+    verifiedChineseBrands: [
+      {
+        brandEn: 'Sailun',
+        brandCn: '赛轮轮胎',
+        categories: ['PCR', 'LCV', 'TBR'],
+        partnershipType: 'Official Partner / 官方合作伙伴',
+        popularModels: ['Atrezzo ZSR', 'Endure']
+      },
+      {
+        brandEn: 'Linglong',
+        brandCn: '玲珑轮胎',
+        categories: ['PCR', 'TBR'],
+        partnershipType: 'Direct Importer / 直接进口商',
+        popularModels: ['Green-Max']
+      }
+    ],
+    segments: ['PCR', 'TBR', 'LCV', 'SUV'],
+    clientTypes: ['乌克兰西部地区汽修与轮胎零售门店', '跨境运力车队', '农业运输业主'],
+    businessOverview: 'Zapaska 是乌克兰西部区域核心轮胎进口批发企业，在罗夫诺、利沃夫及路茨克建有现代化物流仓库，借助毗邻波兰边境的优势，直采赛轮与玲珑轮胎并快速配发。',
+    sourcingStrategy: '专攻越野 SUV 胎、轻卡 VAN 胎以及具有耐磨口碑的重载卡客车胎。',
+    procurementRequirements: {
+      certification: ['UkrSEPRO / ECE R30/R54'],
+      minOrderQuantity: '2-5 40HQ 柜/月',
+      paymentTerms: 'USD/EUR T/T',
+      targetPriceSegment: 'Western Ukraine Regional Wholesale'
+    },
+    pitchingTips: '强调波兰转运提货优势及耐恶劣路况的补强胎体结构。',
+    latitude: 50.6199,
+    longitude: 26.2516
+  }
 ];

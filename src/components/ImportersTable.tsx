@@ -39,15 +39,23 @@ export const ImportersTable: React.FC<ImportersTableProps> = ({
     }));
   };
 
+  const isCountryMatch = (item: ImporterCompany, targetCountry: string) => {
+    if (targetCountry === 'ALL') return true;
+    if (item.country === targetCountry) return true;
+    if (targetCountry === 'France' && (item.countryCn === '法国' || item.countryCode === 'FR')) return true;
+    if (targetCountry === 'Croatia' && (item.countryCn === '克罗地亚' || item.countryCode === 'HR')) return true;
+    if (targetCountry === 'Slovenia' && (item.countryCn === '斯洛文尼亚' || item.countryCode === 'SI')) return true;
+    if (targetCountry === 'Russia' && (item.countryCn === '俄罗斯' || item.countryCode === 'RU')) return true;
+    if (targetCountry === 'Ukraine' && (item.countryCn === '乌克兰' || item.countryCode === 'UA')) return true;
+    return false;
+  };
+
   // Filter & Sort
   const filteredImporters = useMemo(() => {
     return importers
       .filter((item) => {
-        // Must be verified purchasing Chinese tires
-        if (!item.chineseSourcingVerified) return false;
-
         // Country matching
-        if (filters.country !== 'ALL' && item.country !== filters.country) {
+        if (filters.country !== 'ALL' && !isCountryMatch(item, filters.country)) {
           return false;
         }
 
@@ -147,11 +155,11 @@ export const ImportersTable: React.FC<ImportersTableProps> = ({
           </span>
           {[
             { id: 'ALL', label: '全部五国', count: importers.length, flag: '🌐' },
-            { id: 'France', label: '法国', count: importers.filter(i => i.country === 'France').length, flag: '🇫🇷' },
-            { id: 'Croatia', label: '克罗地亚', count: importers.filter(i => i.country === 'Croatia').length, flag: '🇭🇷' },
-            { id: 'Slovenia', label: '斯洛文尼亚', count: importers.filter(i => i.country === 'Slovenia').length, flag: '🇸🇮' },
-            { id: 'Russia', label: '俄罗斯', count: importers.filter(i => i.country === 'Russia').length, flag: '🇷🇺' },
-            { id: 'Ukraine', label: '乌克兰', count: importers.filter(i => i.country === 'Ukraine').length, flag: '🇺🇦' },
+            { id: 'France', label: '法国', count: importers.filter(i => isCountryMatch(i, 'France')).length, flag: '🇫🇷' },
+            { id: 'Croatia', label: '克罗地亚', count: importers.filter(i => isCountryMatch(i, 'Croatia')).length, flag: '🇭🇷' },
+            { id: 'Slovenia', label: '斯洛文尼亚', count: importers.filter(i => isCountryMatch(i, 'Slovenia')).length, flag: '🇸🇮' },
+            { id: 'Russia', label: '俄罗斯', count: importers.filter(i => isCountryMatch(i, 'Russia')).length, flag: '🇷🇺' },
+            { id: 'Ukraine', label: '乌克兰', count: importers.filter(i => isCountryMatch(i, 'Ukraine')).length, flag: '🇺🇦' },
           ].map((tab) => (
             <button
               key={tab.id}
@@ -174,7 +182,7 @@ export const ImportersTable: React.FC<ImportersTableProps> = ({
         </div>
 
         <div className="text-xs text-slate-400 px-3 hidden xl:block shrink-0">
-          结合海关提单与各国商业登记，未采买中国轮胎者严格不计入
+          结合海关提单与智搜比对，支持已采买客户及空白目标客户名录建档
         </div>
       </div>
 

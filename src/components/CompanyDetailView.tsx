@@ -75,10 +75,17 @@ export const CompanyDetailView: React.FC<CompanyDetailViewProps> = ({
               <div className="flex flex-wrap items-center gap-2 sm:gap-3">
                 <span className="text-xl sm:text-2xl">{company.flagEmoji}</span>
                 <h1 className="text-lg sm:text-2xl font-bold text-white tracking-tight">{company.name}</h1>
-                <span className="bg-emerald-500/10 text-emerald-400 text-[10px] sm:text-xs font-semibold px-2.5 py-0.5 rounded-full border border-emerald-500/30 flex items-center space-x-1">
-                  <ShieldCheck className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
-                  <span>海关采买验证已通过</span>
-                </span>
+                {company.chineseSourcingVerified ? (
+                  <span className="bg-emerald-500/10 text-emerald-400 text-[10px] sm:text-xs font-semibold px-2.5 py-0.5 rounded-full border border-emerald-500/30 flex items-center space-x-1">
+                    <ShieldCheck className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                    <span>海关采买验证已通过</span>
+                  </span>
+                ) : (
+                  <span className="bg-sky-500/10 text-sky-300 text-[10px] sm:text-xs font-semibold px-2.5 py-0.5 rounded-full border border-sky-500/30 flex items-center space-x-1">
+                    <ShieldCheck className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                    <span>空白目标 (尚无中国采买记录)</span>
+                  </span>
+                )}
               </div>
               <p className="text-xs sm:text-sm text-slate-400 mt-1.5 flex flex-wrap items-center gap-2 leading-relaxed">
                 <span className="font-mono text-slate-300">({company.frenchName})</span>

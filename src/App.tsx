@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Navbar } from './components/Navbar';
+import { Navbar, NavTabType } from './components/Navbar';
 import { ImportersTable } from './components/ImportersTable';
 import { CompanyDetailView } from './components/CompanyDetailView';
 import { FranceMapVisualizer } from './components/FranceMapVisualizer';
@@ -7,10 +7,12 @@ import { MarketInsightsCharts } from './components/MarketInsightsCharts';
 import { CroatiaHistoryView } from './components/CroatiaHistoryView';
 import { AiAdvisorPanel } from './components/AiAdvisorPanel';
 import { VisitPlanView } from './components/VisitPlanView';
+import { AddInfoView } from './components/AddInfoView';
 import { ALL_EUROPEAN_TIRE_IMPORTERS } from './data/importersData';
 import { ImporterCompany, VisitPlanItem } from './types';
 
 const LOCAL_STORAGE_KEY = 'european_tire_visit_plan_v1';
+const CUSTOM_IMPORTERS_KEY = 'european_tire_custom_importers_v1';
 
 const getInitialVisitPlan = (): Record<string, VisitPlanItem> => {
   try {
@@ -22,9 +24,19 @@ const getInitialVisitPlan = (): Record<string, VisitPlanItem> => {
   return {};
 };
 
+const getInitialCustomImporters = (): ImporterCompany[] => {
+  try {
+    const saved = localStorage.getItem(CUSTOM_IMPORTERS_KEY);
+    if (saved) return JSON.parse(saved);
+  } catch (e) {
+    console.error('Failed to load custom importers', e);
+  }
+  return [];
+};
+
 export default function App() {
-  const [activeTab, setActiveTab] = useState<'directory' | 'map' | 'analytics' | 'croatia_history' | 'ai' | 'visit_plan'>('directory');
-  const [importers] = useState<ImporterCompany[]>(ALL_EUROPEAN_TIRE_IMPORTERS);
+  const [activeTab, setActiveTab] = useState<NavTabType>('directory');
+  const [customImporters, setCustomImporters] = useState<ImporterCompany[]>(getInitialCustomImporters);
   const [selectedCompany, setSelectedCompany] = useState<ImporterCompany | null>(null);
   const [pitchCompany, setPitchCompany] = useState<ImporterCompany | null>(null);
   const [visitPlanMap, setVisitPlanMap] = useState<Record<string, VisitPlanItem>>(getInitialVisitPlan);
@@ -36,6 +48,24 @@ export default function App() {
       console.error('Failed to save visit plan', e);
     }
   }, [visitPlanMap]);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(CUSTOM_IMPORTERS_KEY, JSON.stringify(customImporters));
+    } catch (e) {
+      console.error('Failed to save custom importers', e);
+    }
+  }, [customImporters]);
+
+  const handleAddCompany = (newCompany: ImporterCompany) => {
+    setCustomImporters((prev) => [newCompany, ...prev.filter((c) => c.id !== newCompany.id)]);
+  };
+
+  const handleRemoveCustomImporter = (id: string) => {
+    setCustomImporters((prev) => prev.filter((c) => c.id !== id));
+  };
+
+  const importers = [...customImporters, ...ALL_EUROPEAN_TIRE_IMPORTERS];
 
   const toggleVisitPlan = (companyId: string) => {
     setVisitPlanMap((prev) => {
@@ -72,7 +102,7 @@ export default function App() {
     setActiveTab('ai');
   };
 
-  const handleTabChange = (tab: 'directory' | 'map' | 'analytics' | 'croatia_history' | 'ai' | 'visit_plan') => {
+  const handleTabChange = (tab: NavTabType) => {
     setSelectedCompany(null);
     setActiveTab(tab);
   };
@@ -107,8 +137,18 @@ export default function App() {
                   onSelectCompany={setSelectedCompany}
                   onOpenAiPitch={handleOpenAiPitch}
                   onNavigateCroatiaHistory={() => setActiveTab('croatia_history')}
+                  onNavigateAddInfo={() => setActiveTab('add_info')}
                   visitPlanMap={visitPlanMap}
                   toggleVisitPlan={toggleVisitPlan}
+                />
+              )}
+
+              {activeTab === 'add_info' && (
+                <AddInfoView
+                  onAddCompany={handleAddCompany}
+                  onSelectCompany={setSelectedCompany}
+                  customImporters={customImporters}
+                  onRemoveCustomImporter={handleRemoveCustomImporter}
                 />
               )}
 
@@ -123,7 +163,7 @@ export default function App() {
               )}
 
               {activeTab === 'map' && (
-                <FranceMapVisualizer onSelectCompany={setSelectedCompany} />
+                <FranceMapVisualizer importers={importers} onSelectCompany={setSelectedCompany} />
               )}
 
               {activeTab === 'analytics' && <MarketInsightsCharts />}

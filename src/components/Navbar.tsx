@@ -1,9 +1,11 @@
 import React from 'react';
-import { ShieldCheck, Truck, BarChart3, MapPin, Sparkles, Building2, Layers, CalendarCheck } from 'lucide-react';
+import { ShieldCheck, Truck, BarChart3, MapPin, Sparkles, Building2, CalendarCheck, PlusCircle } from 'lucide-react';
+
+export type NavTabType = 'directory' | 'add_info' | 'map' | 'analytics' | 'croatia_history' | 'ai' | 'visit_plan';
 
 interface NavbarProps {
-  activeTab: 'directory' | 'map' | 'analytics' | 'croatia_history' | 'ai' | 'visit_plan';
-  setActiveTab: (tab: 'directory' | 'map' | 'analytics' | 'croatia_history' | 'ai' | 'visit_plan') => void;
+  activeTab: NavTabType;
+  setActiveTab: (tab: NavTabType) => void;
   visitPlanCount?: number;
 }
 
@@ -48,6 +50,19 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, visitPl
               >
                 <Building2 className="w-4 h-4" />
                 <span>客户信息</span>
+              </button>
+
+              <button
+                id="tab-add-info"
+                onClick={() => setActiveTab('add_info')}
+                className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-all cursor-pointer ${
+                  activeTab === 'add_info'
+                    ? 'bg-emerald-500 text-slate-950 font-bold shadow-sm'
+                    : 'text-emerald-400 hover:text-emerald-300 hover:bg-slate-700/50'
+                }`}
+              >
+                <PlusCircle className="w-4 h-4" />
+                <span>添加信息</span>
               </button>
 
               <button
@@ -117,7 +132,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, visitPl
       <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-xl border-t border-slate-800 px-2 py-1.5 flex justify-around items-center shadow-2xl touch-manipulation">
         <button
           onClick={() => setActiveTab('directory')}
-          className={`flex flex-col items-center justify-center py-1 px-2.5 rounded-xl transition-all cursor-pointer min-w-[56px] min-h-[48px] ${
+          className={`flex flex-col items-center justify-center py-1 px-2 rounded-xl transition-all cursor-pointer min-w-[50px] min-h-[48px] ${
             activeTab === 'directory'
               ? 'text-amber-400 font-bold bg-amber-500/10'
               : 'text-slate-400 hover:text-slate-200'
@@ -128,8 +143,20 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, visitPl
         </button>
 
         <button
+          onClick={() => setActiveTab('add_info')}
+          className={`flex flex-col items-center justify-center py-1 px-2 rounded-xl transition-all cursor-pointer min-w-[50px] min-h-[48px] ${
+            activeTab === 'add_info'
+              ? 'text-emerald-400 font-bold bg-emerald-500/20'
+              : 'text-emerald-400/80 hover:text-emerald-300'
+          }`}
+        >
+          <PlusCircle className="w-5 h-5 mb-0.5" />
+          <span className="text-[10px] tracking-tight">添加信息</span>
+        </button>
+
+        <button
           onClick={() => setActiveTab('visit_plan')}
-          className={`flex flex-col items-center justify-center py-1 px-2.5 rounded-xl transition-all cursor-pointer min-w-[56px] min-h-[48px] relative ${
+          className={`flex flex-col items-center justify-center py-1 px-2 rounded-xl transition-all cursor-pointer min-w-[50px] min-h-[48px] relative ${
             activeTab === 'visit_plan'
               ? 'text-amber-400 font-bold bg-amber-500/10'
               : 'text-slate-400 hover:text-slate-200'
@@ -146,7 +173,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, visitPl
 
         <button
           onClick={() => setActiveTab('map')}
-          className={`flex flex-col items-center justify-center py-1 px-2.5 rounded-xl transition-all cursor-pointer min-w-[56px] min-h-[48px] ${
+          className={`flex flex-col items-center justify-center py-1 px-2 rounded-xl transition-all cursor-pointer min-w-[50px] min-h-[48px] ${
             activeTab === 'map'
               ? 'text-amber-400 font-bold bg-amber-500/10'
               : 'text-slate-400 hover:text-slate-200'
@@ -157,20 +184,8 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, visitPl
         </button>
 
         <button
-          onClick={() => setActiveTab('analytics')}
-          className={`flex flex-col items-center justify-center py-1 px-2.5 rounded-xl transition-all cursor-pointer min-w-[56px] min-h-[48px] ${
-            activeTab === 'analytics'
-              ? 'text-amber-400 font-bold bg-amber-500/10'
-              : 'text-slate-400 hover:text-slate-200'
-          }`}
-        >
-          <BarChart3 className="w-5 h-5 mb-0.5" />
-          <span className="text-[10px] tracking-tight">市场图谱</span>
-        </button>
-
-        <button
           onClick={() => setActiveTab('ai')}
-          className={`flex flex-col items-center justify-center py-1 px-2.5 rounded-xl transition-all cursor-pointer min-w-[56px] min-h-[48px] ${
+          className={`flex flex-col items-center justify-center py-1 px-2 rounded-xl transition-all cursor-pointer min-w-[50px] min-h-[48px] ${
             activeTab === 'ai'
               ? 'text-amber-300 font-bold bg-amber-500/20'
               : 'text-amber-400/80 hover:text-amber-300'

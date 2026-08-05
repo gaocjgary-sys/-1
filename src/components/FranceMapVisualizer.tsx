@@ -6,6 +6,7 @@ import { MapPin, Building, Truck, Globe, ChevronRight, Search, Layers, Maximize2
 
 interface FranceMapVisualizerProps {
   onSelectCompany: (company: ImporterCompany) => void;
+  importers?: ImporterCompany[];
 }
 
 type MapMode = 'dark' | 'street';
@@ -27,7 +28,7 @@ const COUNTRY_PRESETS: CountryPreset[] = [
   { id: 'ALL', label: '欧洲五国全景', flag: '🇪🇺', center: [52.0, 30.0], zoom: 4 },
 ];
 
-export const FranceMapVisualizer: React.FC<FranceMapVisualizerProps> = ({ onSelectCompany }) => {
+export const FranceMapVisualizer: React.FC<FranceMapVisualizerProps> = ({ onSelectCompany, importers }) => {
   const [selectedCountry, setSelectedCountry] = useState<CountryName | 'ALL'>('France');
   const [selectedSegment, setSelectedSegment] = useState<string>('ALL');
   const [searchQuery, setSearchQuery] = useState<string>('');
@@ -41,7 +42,8 @@ export const FranceMapVisualizer: React.FC<FranceMapVisualizerProps> = ({ onSele
 
   // Filter importers
   const filteredImporters = useMemo(() => {
-    return ALL_EUROPEAN_TIRE_IMPORTERS.filter((imp) => {
+    const sourceList = importers || ALL_EUROPEAN_TIRE_IMPORTERS;
+    return sourceList.filter((imp) => {
       if (selectedCountry !== 'ALL' && imp.country !== selectedCountry) {
         return false;
       }

@@ -1,12 +1,13 @@
 import React, { useState, useMemo } from 'react';
 import { ImporterCompany, TireSegment, FilterState, CountryName, VisitPlanItem } from '../types';
-import { Search, ShieldCheck, MapPin, ExternalLink, ChevronRight, Sparkles, Building, Package, Download, Globe, CalendarCheck, CalendarPlus, FileText } from 'lucide-react';
+import { Search, ShieldCheck, MapPin, ExternalLink, ChevronRight, Sparkles, Building, Package, Download, Globe, CalendarCheck, CalendarPlus, FileText, PlusCircle } from 'lucide-react';
 
 interface ImportersTableProps {
   importers: ImporterCompany[];
   onSelectCompany: (company: ImporterCompany) => void;
   onOpenAiPitch: (company: ImporterCompany) => void;
   onNavigateCroatiaHistory?: () => void;
+  onNavigateAddInfo?: () => void;
   visitPlanMap?: Record<string, VisitPlanItem>;
   toggleVisitPlan?: (companyId: string) => void;
 }
@@ -16,6 +17,7 @@ export const ImportersTable: React.FC<ImportersTableProps> = ({
   onSelectCompany,
   onOpenAiPitch,
   onNavigateCroatiaHistory,
+  onNavigateAddInfo,
   visitPlanMap = {},
   toggleVisitPlan,
 }) => {
@@ -217,15 +219,28 @@ export const ImportersTable: React.FC<ImportersTableProps> = ({
             />
           </div>
 
-          {/* Export Button */}
-          <button
-            id="export-csv-btn"
-            onClick={handleExportCsv}
-            className="flex items-center justify-center space-x-2 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold px-4 py-2.5 rounded-xl border border-slate-700 transition-colors cursor-pointer min-h-[44px]"
-          >
-            <Download className="w-4 h-4 text-amber-400" />
-            <span>导出名录 (CSV)</span>
-          </button>
+          {/* Action Buttons */}
+          <div className="flex items-center gap-2">
+            {onNavigateAddInfo && (
+              <button
+                onClick={onNavigateAddInfo}
+                className="flex items-center justify-center space-x-1.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-bold px-3.5 py-2.5 rounded-xl transition-all cursor-pointer shadow-sm min-h-[44px] shrink-0"
+              >
+                <PlusCircle className="w-4 h-4" />
+                <span>添加信息</span>
+              </button>
+            )}
+
+            {/* Export Button */}
+            <button
+              id="export-csv-btn"
+              onClick={handleExportCsv}
+              className="flex items-center justify-center space-x-2 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold px-4 py-2.5 rounded-xl border border-slate-700 transition-colors cursor-pointer min-h-[44px] shrink-0"
+            >
+              <Download className="w-4 h-4 text-amber-400" />
+              <span>导出名录 (CSV)</span>
+            </button>
+          </div>
         </div>
 
         {/* Filter Pills / Sort Bar */}

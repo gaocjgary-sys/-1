@@ -45,7 +45,6 @@ export const ImportersTable: React.FC<ImportersTableProps> = ({
     if (targetCountry === 'France' && (item.countryCn === '法国' || item.countryCode === 'FR')) return true;
     if (targetCountry === 'Croatia' && (item.countryCn === '克罗地亚' || item.countryCode === 'HR')) return true;
     if (targetCountry === 'Slovenia' && (item.countryCn === '斯洛文尼亚' || item.countryCode === 'SI')) return true;
-    if (targetCountry === 'Russia' && (item.countryCn === '俄罗斯' || item.countryCode === 'RU')) return true;
     if (targetCountry === 'Ukraine' && (item.countryCn === '乌克兰' || item.countryCode === 'UA')) return true;
     return false;
   };
@@ -138,7 +137,7 @@ export const ImportersTable: React.FC<ImportersTableProps> = ({
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement('a');
     link.setAttribute('href', encodedUri);
-    link.setAttribute('download', `欧洲与俄乌中国轮胎进口商及海关名录_${filters.country}.csv`);
+    link.setAttribute('download', `欧洲四国中国轮胎进口商及海关名录_${filters.country}.csv`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -154,11 +153,10 @@ export const ImportersTable: React.FC<ImportersTableProps> = ({
             <span className="hidden sm:inline">目标国家:</span>
           </span>
           {[
-            { id: 'ALL', label: '全部五国', count: importers.length, flag: '🌐' },
+            { id: 'ALL', label: '全部四国', count: importers.length, flag: '🌐' },
             { id: 'France', label: '法国', count: importers.filter(i => isCountryMatch(i, 'France')).length, flag: '🇫🇷' },
             { id: 'Croatia', label: '克罗地亚', count: importers.filter(i => isCountryMatch(i, 'Croatia')).length, flag: '🇭🇷' },
             { id: 'Slovenia', label: '斯洛文尼亚', count: importers.filter(i => isCountryMatch(i, 'Slovenia')).length, flag: '🇸🇮' },
-            { id: 'Russia', label: '俄罗斯', count: importers.filter(i => isCountryMatch(i, 'Russia')).length, flag: '🇷🇺' },
             { id: 'Ukraine', label: '乌克兰', count: importers.filter(i => isCountryMatch(i, 'Ukraine')).length, flag: '🇺🇦' },
           ].map((tab) => (
             <button
@@ -195,7 +193,7 @@ export const ImportersTable: React.FC<ImportersTableProps> = ({
           <div>
             <div className="text-lg sm:text-2xl font-bold text-white">{filteredImporters.length} 家</div>
             <div className="text-[10px] sm:text-xs text-slate-400 leading-tight">
-              {filters.country === 'ALL' ? '核心进口商' : `${filters.country === 'France' ? '法国' : filters.country === 'Croatia' ? '克罗地亚' : filters.country === 'Slovenia' ? '斯洛文尼亚' : filters.country === 'Russia' ? '俄罗斯' : '乌克兰'}进口商`}
+              {filters.country === 'ALL' ? '核心进口商' : `${filters.country === 'France' ? '法国' : filters.country === 'Croatia' ? '克罗地亚' : filters.country === 'Slovenia' ? '斯洛文尼亚' : '乌克兰'}进口商`}
             </div>
           </div>
         </div>
@@ -222,7 +220,7 @@ export const ImportersTable: React.FC<ImportersTableProps> = ({
               id="search-importers-input"
               value={filters.searchQuery}
               onChange={(e) => setFilters({ ...filters, searchQuery: e.target.value })}
-              placeholder="搜索公司、城市、买家、海关编码HS (如 4011, Sever-Avto, 玲珑)..."
+              placeholder="搜索公司、城市、买家、海关编码HS (如 4011, Technoopt, 玲珑)..."
               className="w-full bg-slate-950 text-slate-100 placeholder-slate-500 text-xs sm:text-sm rounded-xl pl-10 pr-4 py-2.5 sm:py-2.5 border border-slate-800 focus:outline-none focus:border-amber-500 transition-colors min-h-[44px]"
             />
           </div>
@@ -274,7 +272,7 @@ export const ImportersTable: React.FC<ImportersTableProps> = ({
         <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 shrink-0 mt-0.5" />
         <div className="leading-tight">
           <span className="font-semibold text-amber-400">海关关务核查：</span>
-          法🇫🇷·克🇭🇷·斯🇸🇮·俄🇷🇺·乌🇺🇦进口商均拥有确凿中国轮胎提单采买记录。
+          法🇫🇷·克🇭🇷·斯🇸🇮·乌🇺🇦进口商均拥有确凿中国轮胎提单采买记录。
         </div>
       </div>
 

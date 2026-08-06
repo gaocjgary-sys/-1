@@ -21,8 +21,8 @@ export interface ChineseBrandSourced {
   popularModels?: string[];
 }
 
-export type CountryCode = 'FR' | 'HR' | 'SI' | 'RU' | 'UA';
-export type CountryName = 'France' | 'Croatia' | 'Slovenia' | 'Russia' | 'Ukraine';
+export type CountryCode = 'FR' | 'HR' | 'SI' | 'UA';
+export type CountryName = 'France' | 'Croatia' | 'Slovenia' | 'Ukraine';
 
 export type DistributorTier = '一级进口批发商' | '二级批发商' | '连锁零售商/快修' | 'B2B/电商平台';
 

@@ -31,7 +31,6 @@ export const AddInfoView: React.FC<AddInfoViewProps> = ({
       France: { cn: '法国', code: 'FR', flag: '🇫🇷', city: 'Paris / 巴黎', region: 'Île-de-France', department: 'Capital Region', lat: 48.8566, lng: 2.3522 },
       Croatia: { cn: '克罗地亚', code: 'HR', flag: '🇭🇷', city: 'Zagreb / 萨格勒布', region: 'Grad Zagreb', department: 'Central Croatia', lat: 45.8153, lng: 15.9819 },
       Slovenia: { cn: '斯洛文尼亚', code: 'SI', flag: '🇸🇮', city: 'Ljubljana / 卢布尔雅那', region: 'Osrednjeslovenska', department: 'Central Slovenia', lat: 46.0569, lng: 14.5058 },
-      Russia: { cn: '俄罗斯', code: 'RU', flag: '🇷🇺', city: 'Moscow / 莫斯科', region: 'Moscow Oblast', department: 'Central Federal District', lat: 55.7558, lng: 37.6173 },
       Ukraine: { cn: '乌克兰', code: 'UA', flag: '🇺🇦', city: 'Kyiv / 基辅', region: 'Kyiv Oblast', department: 'Capital Region', lat: 50.4501, lng: 30.5234 },
     };
 
@@ -172,7 +171,6 @@ export const AddInfoView: React.FC<AddInfoViewProps> = ({
     { name: 'France', code: 'FR', label: '法国 (France)', flag: '🇫🇷' },
     { name: 'Croatia', code: 'HR', label: '克罗地亚 (Croatia)', flag: '🇭🇷' },
     { name: 'Slovenia', code: 'SI', label: '斯洛文尼亚 (Slovenia)', flag: '🇸🇮' },
-    { name: 'Russia', code: 'RU', label: '俄罗斯 (Russia)', flag: '🇷🇺' },
     { name: 'Ukraine', code: 'UA', label: '乌克兰 (Ukraine)', flag: '🇺🇦' },
   ];
 
@@ -195,7 +193,7 @@ export const AddInfoView: React.FC<AddInfoViewProps> = ({
               </h2>
             </div>
             <p className="text-slate-300 text-xs sm:text-sm mt-2 max-w-2xl leading-relaxed">
-              输入您手头已有的欧洲/俄乌轮胎公司名称，系统将通过 AI 联网搜索商业注册登记、关务提单流水及分销网络，自动补全全套采购档案并添加至现存列表中。
+              输入您手头已有的欧洲/乌克兰轮胎公司名称，系统将通过 AI 联网搜索商业注册登记、关务提单流水及分销网络，自动补全全套采购档案并添加至现存列表中。
             </p>
           </div>
           <div className="bg-slate-800/80 px-4 py-3 rounded-xl border border-slate-700/60 text-xs text-slate-300 space-y-1">

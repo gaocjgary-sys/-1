@@ -24,7 +24,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, visitPl
               <div>
                 <div className="flex items-center space-x-1.5">
                   <h1 className="font-bold text-sm sm:text-lg text-slate-100 tracking-tight leading-snug">
-                    Gary 欧洲与俄乌轮胎资料系统
+                    Gary 欧洲轮胎资料系统
                   </h1>
                   <span className="bg-emerald-500/20 text-emerald-400 text-[10px] sm:text-xs font-semibold px-1.5 py-0.5 rounded-full border border-emerald-500/30 shrink-0">
                     <ShieldCheck className="w-3 h-3 inline mr-0.5" />
@@ -32,7 +32,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, visitPl
                   </span>
                 </div>
                 <p className="text-[10px] sm:text-xs text-slate-400 line-clamp-1">
-                  法国🇫🇷 · 克罗地亚🇭🇷 · 斯洛文尼亚🇸🇮 · 俄罗斯🇷🇺 · 乌克兰🇺🇦
+                  法国🇫🇷 · 克罗地亚🇭🇷 · 斯洛文尼亚🇸🇮 · 乌克兰🇺🇦
                 </p>
               </div>
             </div>

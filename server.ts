@@ -108,17 +108,17 @@ You understand EU tire labelling regulations (ECE R117, REACH, 3PMSF winter cert
       const targetNotes = notes || '';
 
       const systemInstruction = `You are an expert international tire trade supply chain analyst and customs intelligence researcher.
-Your goal is to perform a research search on a tire importing or distributing company in Europe/Russia/Ukraine, auto-complete its full business profile, Chinese tire brands imported (if any), procurement requirements, and contact details.
+Your goal is to perform a research search on a tire importing or distributing company in Europe/Ukraine, auto-complete its full business profile, Chinese tire brands imported (if any), procurement requirements, and contact details.
 IMPORTANT RULE: Companies WITHOUT Chinese tire purchase history are ALSO valid. If a company does NOT have Chinese tire purchasing records, set "chineseSourcingVerified" to false, and set "verifiedChineseBrands" to an array with a placeholder or empty list noting "尚无中国轮胎采买记录（空白开发目标）".
 Return ONLY a valid JSON object strictly matching the requested format without any markdown code wrappers or conversational text outside the JSON.`;
 
-      const promptText = `对以下欧洲/俄罗斯/乌克兰轮胎进口或分销公司进行全网信息检索与档案自动化整理：
+      const promptText = `对以下欧洲/乌克兰轮胎进口或分销公司进行全网信息检索与档案自动化整理：
 公司名称: ${trimmedName}
 目标国家/地区: ${targetCountry}
 官网: ${targetWebsite || '未提供'}
 补充备注: ${targetNotes || '无'}
 
-请检索或评估该公司的真实商业背景、所属国家（France/Croatia/Slovenia/Russia/Ukraine等）、总部城市、详细地址、联系电话、电子邮箱、官网地址、创立年份、仓储物流规模、年进口轮胎量估算、主营轮胎品类（PCR/TBR/OTR/AGRI等）、采购或代理的中国轮胎品牌（如有则填赛轮、玲珑、三角等；若无则标注为【尚无中国轮胎采买记录/空白目标】且 chineseSourcingVerified 为 false）、采购认证要求、付款方式、商务对接技巧，以及经纬度坐标。
+请检索或评估该公司的真实商业背景、所属国家（France/Croatia/Slovenia/Ukraine等）、总部城市、详细地址、联系电话、电子邮箱、官网地址、创立年份、仓储物流规模、年进口轮胎量估算、主营轮胎品类（PCR/TBR/OTR/AGRI等）、采购或代理的中国轮胎品牌（如有则填赛轮、玲珑、三角等；若无则标注为【尚无中国轮胎采买记录/空白目标】且 chineseSourcingVerified 为 false）、采购认证要求、付款方式、商务对接技巧，以及经纬度坐标。
 
 请严格输出以下格式的 JSON 对象：
 {
@@ -233,9 +233,6 @@ Return ONLY a valid JSON object strictly matching the requested format without a
         }
         if (str.includes('slovenia') || str.includes('斯洛文尼亚') || str.includes('si')) {
           return { name: 'Slovenia' as const, cn: '斯洛文尼亚', code: 'SI' as const, flag: '🇸🇮', lat: 46.0569, lng: 14.5058 };
-        }
-        if (str.includes('russia') || str.includes('俄罗斯') || str.includes('ru')) {
-          return { name: 'Russia' as const, cn: '俄罗斯', code: 'RU' as const, flag: '🇷🇺', lat: 55.7558, lng: 37.6173 };
         }
         if (str.includes('ukraine') || str.includes('乌克兰') || str.includes('ua')) {
           return { name: 'Ukraine' as const, cn: '乌克兰', code: 'UA' as const, flag: '🇺🇦', lat: 50.4501, lng: 30.5234 };

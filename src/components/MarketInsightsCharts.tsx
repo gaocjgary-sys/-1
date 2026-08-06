@@ -74,7 +74,6 @@ export const MarketInsightsCharts: React.FC = () => {
             { id: 'France', label: `法国 (${ALL_EUROPEAN_TIRE_IMPORTERS.filter((i) => i.country === 'France').length})`, flag: '🇫🇷' },
             { id: 'Croatia', label: `克罗地亚 (${ALL_EUROPEAN_TIRE_IMPORTERS.filter((i) => i.country === 'Croatia').length})`, flag: '🇭🇷' },
             { id: 'Slovenia', label: `斯洛文尼亚 (${ALL_EUROPEAN_TIRE_IMPORTERS.filter((i) => i.country === 'Slovenia').length})`, flag: '🇸🇮' },
-            { id: 'Russia', label: `俄罗斯 (${ALL_EUROPEAN_TIRE_IMPORTERS.filter((i) => i.country === 'Russia').length})`, flag: '🇷🇺' },
             { id: 'Ukraine', label: `乌克兰 (${ALL_EUROPEAN_TIRE_IMPORTERS.filter((i) => i.country === 'Ukraine').length})`, flag: '🇺🇦' },
           ].map((tab) => (
             <button
@@ -96,7 +95,7 @@ export const MarketInsightsCharts: React.FC = () => {
       <div className="bg-slate-900 border border-slate-800 rounded-2xl p-4 sm:p-6 shadow-sm">
         <h2 className="text-base sm:text-lg font-bold text-white flex items-center space-x-2">
           <BarChart3 className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 shrink-0" />
-          <span>目标欧洲五国轮胎进口商量化图谱与分销结构</span>
+          <span>目标欧洲四国轮胎进口商量化图谱与分销结构</span>
         </h2>
         <p className="text-[11px] sm:text-xs text-slate-400 mt-1 leading-relaxed">
           直观展现各国进口商的估算年分销体量（万条/年）与产品线覆盖分布

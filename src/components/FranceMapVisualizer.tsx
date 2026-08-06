@@ -23,9 +23,8 @@ const COUNTRY_PRESETS: CountryPreset[] = [
   { id: 'France', label: '法国', flag: '🇫🇷', center: [46.603354, 1.888334], zoom: 6 },
   { id: 'Croatia', label: '克罗地亚', flag: '🇭🇷', center: [45.1, 15.2], zoom: 7 },
   { id: 'Slovenia', label: '斯洛文尼亚', flag: '🇸🇮', center: [46.15, 14.99], zoom: 8 },
-  { id: 'Russia', label: '俄罗斯全境', flag: '🇷🇺', center: [55.0, 50.0], zoom: 4 },
   { id: 'Ukraine', label: '乌克兰', flag: '🇺🇦', center: [49.0, 31.0], zoom: 6 },
-  { id: 'ALL', label: '欧洲五国全景', flag: '🇪🇺', center: [52.0, 30.0], zoom: 4 },
+  { id: 'ALL', label: '欧洲四国全景', flag: '🇪🇺', center: [48.0, 16.0], zoom: 5 },
 ];
 
 export const FranceMapVisualizer: React.FC<FranceMapVisualizerProps> = ({ onSelectCompany, importers }) => {
@@ -50,7 +49,6 @@ export const FranceMapVisualizer: React.FC<FranceMapVisualizerProps> = ({ onSele
           (selectedCountry === 'France' && (imp.countryCn === '法国' || imp.countryCode === 'FR')) ||
           (selectedCountry === 'Croatia' && (imp.countryCn === '克罗地亚' || imp.countryCode === 'HR')) ||
           (selectedCountry === 'Slovenia' && (imp.countryCn === '斯洛文尼亚' || imp.countryCode === 'SI')) ||
-          (selectedCountry === 'Russia' && (imp.countryCn === '俄罗斯' || imp.countryCode === 'RU')) ||
           (selectedCountry === 'Ukraine' && (imp.countryCn === '乌克兰' || imp.countryCode === 'UA'));
 
         if (!isMatch) return false;
@@ -251,7 +249,7 @@ export const FranceMapVisualizer: React.FC<FranceMapVisualizerProps> = ({ onSele
         <div>
           <h2 className="text-lg font-bold text-white flex items-center space-x-2">
             <MapPin className="w-5 h-5 text-amber-400" />
-            <span>欧洲五国（法·克·斯·俄·乌）真实地理与城市地图分布</span>
+            <span>欧洲四国（法·克·斯·乌）真实地理与城市地图分布</span>
           </h2>
           <p className="text-xs text-slate-400 mt-1">
             高精度真实国家地图背景：已准确定位 97 家轮胎进口商总部及核心物流仓储所在的 35+ 个欧洲城市

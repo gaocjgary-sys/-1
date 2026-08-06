@@ -46,11 +46,6 @@ const sanitizeCompany = (c: ImporterCompany): ImporterCompany => {
     countryCn = '斯洛文尼亚';
     countryCode = 'SI';
     flagEmoji = '🇸🇮';
-  } else if (cLower.includes('russia') || cLower.includes('俄') || c.countryCode === 'RU') {
-    countryName = 'Russia';
-    countryCn = '俄罗斯';
-    countryCode = 'RU';
-    flagEmoji = '🇷🇺';
   } else if (cLower.includes('ukraine') || cLower.includes('乌') || c.countryCode === 'UA') {
     countryName = 'Ukraine';
     countryCn = '乌克兰';
@@ -232,7 +227,7 @@ export default function App() {
       <footer className="bg-slate-900 border-t border-slate-800 text-slate-400 py-6 text-xs text-center pb-20 md:pb-6">
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
           <div>
-            <span className="font-semibold text-slate-300">欧洲五国（法🇫🇷·克🇭🇷·斯🇸🇮·俄🇷🇺·乌🇺🇦）中国轮胎进口商与关务名录系统</span>
+            <span className="font-semibold text-slate-300">欧洲四国（法🇫🇷·克🇭🇷·斯🇸🇮·乌🇺🇦）中国轮胎进口商与关务名录系统</span>
             <span className="ml-2 text-slate-500 hidden sm:inline">• 关务与智搜核验：涵盖已采买中国品牌客户及潜在空白目标客户</span>
           </div>
           <div className="text-slate-500 text-[11px] sm:text-xs">

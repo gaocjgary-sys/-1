@@ -25,8 +25,8 @@ export const ImporterDetailModal: React.FC<ImporterDetailModalProps> = ({
         {/* Modal Header */}
         <div className="sticky top-0 bg-slate-900/95 backdrop-blur border-b border-slate-800 p-3.5 sm:p-6 z-10 flex items-start justify-between">
           <div className="flex items-start space-x-2.5 sm:space-x-4 pr-2">
-            <div className="w-9 h-9 sm:w-12 sm:h-12 bg-gradient-to-tr from-amber-500 to-yellow-400 text-slate-950 font-black rounded-xl sm:rounded-2xl flex items-center justify-center text-sm sm:text-xl shrink-0 shadow-md">
-              #{company.rank}
+            <div className="w-9 h-9 sm:w-12 sm:h-12 bg-gradient-to-tr from-amber-500 to-yellow-400 text-slate-950 font-bold rounded-xl sm:rounded-2xl flex items-center justify-center text-sm sm:text-xl shrink-0 shadow-md">
+              <Building2 className="w-5 h-5 sm:w-7 sm:h-7 text-slate-950" />
             </div>
             <div>
               <div className="flex flex-wrap items-center gap-1.5 sm:gap-3">

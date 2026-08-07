@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { ImporterCompany, TireSegment, FilterState, CountryName, VisitPlanItem } from '../types';
-import { Search, ShieldCheck, MapPin, ExternalLink, ChevronRight, Sparkles, Building, Package, Download, Globe, CalendarCheck, CalendarPlus, FileText, PlusCircle } from 'lucide-react';
+import { Search, ShieldCheck, MapPin, ExternalLink, ChevronRight, Sparkles, Download, Globe, CalendarCheck, CalendarPlus, FileText, PlusCircle } from 'lucide-react';
 
 interface ImportersTableProps {
   importers: ImporterCompany[];
@@ -10,6 +10,8 @@ interface ImportersTableProps {
   onNavigateAddInfo?: () => void;
   visitPlanMap?: Record<string, VisitPlanItem>;
   toggleVisitPlan?: (companyId: string) => void;
+  filters?: FilterState;
+  onFiltersChange?: (updater: FilterState | ((prev: FilterState) => FilterState)) => void;
 }
 
 export const ImportersTable: React.FC<ImportersTableProps> = ({
@@ -20,8 +22,10 @@ export const ImportersTable: React.FC<ImportersTableProps> = ({
   onNavigateAddInfo,
   visitPlanMap = {},
   toggleVisitPlan,
+  filters: propFilters,
+  onFiltersChange,
 }) => {
-  const [filters, setFilters] = useState<FilterState>({
+  const [localFilters, setLocalFilters] = useState<FilterState>({
     searchQuery: '',
     country: 'ALL',
     segment: 'ALL',
@@ -30,6 +34,16 @@ export const ImportersTable: React.FC<ImportersTableProps> = ({
     tier: 'ALL',
     sortBy: 'rank',
   });
+
+  const filters = propFilters || localFilters;
+
+  const setFilters = (updater: FilterState | ((prev: FilterState) => FilterState)) => {
+    if (onFiltersChange) {
+      onFiltersChange(updater);
+    } else {
+      setLocalFilters(updater);
+    }
+  };
 
   const handleCountryTabChange = (countryId: CountryName | 'ALL') => {
     setFilters((prev) => ({
@@ -90,19 +104,13 @@ export const ImportersTable: React.FC<ImportersTableProps> = ({
       });
   }, [importers, filters.country, filters.searchQuery, filters.sortBy]);
 
-  // Stats calculation based on filtered view
-  const totalVolumeInWan = useMemo(() => {
-    const sum = filteredImporters.reduce((acc, curr) => acc + curr.annualVolumeNumber, 0);
-    return Math.round(sum / 10000);
-  }, [filteredImporters]);
-
   // Export to CSV
   const handleExportCsv = () => {
     const headers = [
       '国家',
-      '本土排名',
+      '序号',
       '公司名称',
-      '当地注册/俄语名称',
+      '当地注册名称',
       '总部城市',
       '省/大区',
       '创立年份',
@@ -114,9 +122,9 @@ export const ImportersTable: React.FC<ImportersTableProps> = ({
       '官网',
     ];
 
-    const rows = filteredImporters.map((c) => [
+    const rows = filteredImporters.map((c, index) => [
       `"${c.countryCn}(${c.country})"`,
-      c.rank,
+      index + 1,
       `"${c.name}"`,
       `"${c.frenchName}"`,
       `"${c.city}"`,
@@ -184,31 +192,6 @@ export const ImportersTable: React.FC<ImportersTableProps> = ({
         </div>
       </div>
 
-      {/* Top Banner & Overview Cards - 2 Grid */}
-      <div className="grid grid-cols-2 gap-2.5 sm:gap-4">
-        <div className="bg-slate-900 border border-slate-800 rounded-xl p-3 sm:p-4 flex items-center space-x-2.5 sm:space-x-3 shadow-sm">
-          <div className="bg-amber-500/10 p-2 sm:p-3 rounded-lg text-amber-500 border border-amber-500/20 shrink-0">
-            <Building className="w-4 h-4 sm:w-6 sm:h-6" />
-          </div>
-          <div>
-            <div className="text-lg sm:text-2xl font-bold text-white">{filteredImporters.length} 家</div>
-            <div className="text-[10px] sm:text-xs text-slate-400 leading-tight">
-              {filters.country === 'ALL' ? '核心进口商' : `${filters.country === 'France' ? '法国' : filters.country === 'Croatia' ? '克罗地亚' : filters.country === 'Slovenia' ? '斯洛文尼亚' : '乌克兰'}进口商`}
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-slate-900 border border-slate-800 rounded-xl p-3 sm:p-4 flex items-center space-x-2.5 sm:space-x-3 shadow-sm">
-          <div className="bg-blue-500/10 p-2 sm:p-3 rounded-lg text-blue-400 border border-blue-500/20 shrink-0">
-            <Package className="w-4 h-4 sm:w-6 sm:h-6" />
-          </div>
-          <div>
-            <div className="text-lg sm:text-2xl font-bold text-white">~{totalVolumeInWan} 万条</div>
-            <div className="text-[10px] sm:text-xs text-slate-400 leading-tight">年估算进口体量</div>
-          </div>
-        </div>
-      </div>
-
       {/* Filter Toolbar */}
       <div className="bg-slate-900 border border-slate-800 rounded-2xl p-3.5 sm:p-5 space-y-3 sm:space-y-4 shadow-sm">
         <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
@@ -259,7 +242,7 @@ export const ImportersTable: React.FC<ImportersTableProps> = ({
               onChange={(e) => setFilters({ ...filters, sortBy: e.target.value as any })}
               className="bg-slate-950 text-amber-400 font-medium border border-slate-800 rounded-lg px-2.5 py-1.5 focus:outline-none focus:border-amber-500 text-xs min-h-[36px]"
             >
-              <option value="rank">默认排名 (综合实力)</option>
+              <option value="rank">默认顺序 (列表顺序)</option>
               <option value="volume">年分销估量 (从高到低)</option>
               <option value="foundedYear">成立年份 (老牌优先)</option>
             </select>
@@ -300,25 +283,15 @@ export const ImportersTable: React.FC<ImportersTableProps> = ({
             </button>
           </div>
         ) : (
-          filteredImporters.map((company) => (
+          filteredImporters.map((company, index) => (
             <div
               key={company.id}
               className="bg-slate-900 border border-slate-800 hover:border-amber-500/40 rounded-2xl p-4 sm:p-5 transition-all shadow-sm hover:shadow-md flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-4 group"
             >
               {/* Company Basic Info: Rank, Flag, Name, Address */}
               <div className="flex items-start space-x-3 sm:space-x-4 min-w-0 flex-1">
-                <div
-                  className={`w-9 h-9 sm:w-11 sm:h-11 rounded-xl font-bold flex items-center justify-center text-sm sm:text-base shrink-0 ${
-                    company.rank === 1
-                      ? 'bg-gradient-to-tr from-amber-500 to-yellow-400 text-slate-950 shadow-sm'
-                      : company.rank === 2
-                      ? 'bg-slate-200 text-slate-950 font-bold'
-                      : company.rank === 3
-                      ? 'bg-amber-700/80 text-amber-100'
-                      : 'bg-slate-800 text-slate-300 border border-slate-700'
-                  }`}
-                >
-                  #{company.rank}
+                <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl font-bold flex items-center justify-center text-sm sm:text-base shrink-0 bg-slate-800 text-amber-400 border border-slate-700 font-mono">
+                  {index + 1}
                 </div>
 
                 <div className="min-w-0 flex-1 space-y-1">

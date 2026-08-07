@@ -6,6 +6,7 @@ interface AddInfoViewProps {
   onAddCompany: (company: ImporterCompany) => void;
   onSelectCompany: (company: ImporterCompany) => void;
   customImporters: ImporterCompany[];
+  allImporters?: ImporterCompany[];
   onRemoveCustomImporter?: (id: string) => void;
 }
 
@@ -13,6 +14,7 @@ export const AddInfoView: React.FC<AddInfoViewProps> = ({
   onAddCompany,
   onSelectCompany,
   customImporters,
+  allImporters = [],
   onRemoveCustomImporter,
 }) => {
   const [companyName, setCompanyName] = useState('');
@@ -24,7 +26,29 @@ export const AddInfoView: React.FC<AddInfoViewProps> = ({
   const [progressStep, setProgressStep] = useState<number>(0);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [previewCompany, setPreviewCompany] = useState<ImporterCompany | null>(null);
+  const [duplicateCompany, setDuplicateCompany] = useState<ImporterCompany | null>(null);
   const [isSaved, setIsSaved] = useState(false);
+
+  const findDuplicateCompany = (name: string, web?: string): ImporterCompany | undefined => {
+    if (!allImporters || allImporters.length === 0) return undefined;
+    const normName = name.trim().toLowerCase().replace(/[^a-z0-9]/g, '');
+    const normWeb = web ? web.trim().toLowerCase().replace(/^https?:\/\//, '').replace(/^www\./, '').replace(/\/.*$/, '') : '';
+
+    return allImporters.find((c) => {
+      const cNormName = c.name.trim().toLowerCase().replace(/[^a-z0-9]/g, '');
+      const cNormFrenchName = c.frenchName ? c.frenchName.trim().toLowerCase().replace(/[^a-z0-9]/g, '') : '';
+      const cNormWeb = c.website ? c.website.trim().toLowerCase().replace(/^https?:\/\//, '').replace(/^www\./, '').replace(/\/.*$/, '') : '';
+
+      if (normName && normName.length >= 2) {
+        if (cNormName === normName || cNormFrenchName === normName) return true;
+        if (normName.length >= 4 && (cNormName.includes(normName) || normName.includes(cNormName))) return true;
+      }
+      if (normWeb && normWeb.length > 4 && cNormWeb && cNormWeb === normWeb) {
+        return true;
+      }
+      return false;
+    });
+  };
 
   const generateFallbackCompany = (name: string, country: CountryName, web?: string, userNotes?: string): ImporterCompany => {
     const countryMetaMap: Record<CountryName, { cn: string; code: CountryCode; flag: string; city: string; region: string; department: string; lat: number; lng: number }> = {
@@ -102,6 +126,16 @@ export const AddInfoView: React.FC<AddInfoViewProps> = ({
       return;
     }
 
+    // System Specification Rule: Prevent adding duplicate existing companies
+    const existing = findDuplicateCompany(companyName.trim(), website.trim());
+    if (existing) {
+      setDuplicateCompany(existing);
+      setPreviewCompany(null);
+      setErrorMessage(`【系统规格】重复已经存在的信息不再可以添加！该公司“${existing.name} (${existing.countryCn})”在名录库中已存在。`);
+      return;
+    }
+
+    setDuplicateCompany(null);
     setIsLoading(true);
     setErrorMessage(null);
     setPreviewCompany(null);
@@ -129,33 +163,43 @@ export const AddInfoView: React.FC<AddInfoViewProps> = ({
       clearTimeout(timer1);
       clearTimeout(timer2);
 
+      let companyObj: ImporterCompany;
+
       if (!response.ok) {
-        // Static hosting like GitHub Pages will return 404 for Express API routes
-        console.warn('Backend API endpoint unavailable (likely running on static host like GitHub Pages). Switching to client-side smart profile generator.');
-        const fallbackCompany = generateFallbackCompany(companyName.trim(), selectedCountry, website.trim(), notes.trim());
-        setProgressStep(4);
-        setPreviewCompany(fallbackCompany);
-        return;
+        console.warn('Backend API endpoint unavailable. Switching to client-side smart profile generator.');
+        companyObj = generateFallbackCompany(companyName.trim(), selectedCountry, website.trim(), notes.trim());
+      } else {
+        const data = await response.json();
+        if (!data.success || !data.company) {
+          companyObj = generateFallbackCompany(companyName.trim(), selectedCountry, website.trim(), notes.trim());
+        } else {
+          companyObj = data.company;
+        }
       }
 
-      const data = await response.json();
-
-      if (!data.success || !data.company) {
-        const fallbackCompany = generateFallbackCompany(companyName.trim(), selectedCountry, website.trim(), notes.trim());
+      // Check duplicate again for AI generated/enriched result
+      const dupAfterEnrich = findDuplicateCompany(companyObj.name, companyObj.website);
+      if (dupAfterEnrich) {
+        setDuplicateCompany(dupAfterEnrich);
+        setErrorMessage(`【系统规格】重复已经存在的信息不再可以添加！该公司“${dupAfterEnrich.name} (${dupAfterEnrich.countryCn})”在名录库中已存在。`);
+      } else {
         setProgressStep(4);
-        setPreviewCompany(fallbackCompany);
-        return;
+        setPreviewCompany(companyObj);
       }
-
-      setProgressStep(4);
-      setPreviewCompany(data.company);
     } catch (err: any) {
       console.warn('API call failed or static environment detected:', err);
       clearTimeout(timer1);
       clearTimeout(timer2);
       const fallbackCompany = generateFallbackCompany(companyName.trim(), selectedCountry, website.trim(), notes.trim());
-      setProgressStep(4);
-      setPreviewCompany(fallbackCompany);
+      
+      const dupAfterEnrich = findDuplicateCompany(fallbackCompany.name, fallbackCompany.website);
+      if (dupAfterEnrich) {
+        setDuplicateCompany(dupAfterEnrich);
+        setErrorMessage(`【系统规格】重复已经存在的信息不再可以添加！该公司“${dupAfterEnrich.name} (${dupAfterEnrich.countryCn})”在名录库中已存在。`);
+      } else {
+        setProgressStep(4);
+        setPreviewCompany(fallbackCompany);
+      }
     } finally {
       setIsLoading(false);
     }
@@ -163,6 +207,13 @@ export const AddInfoView: React.FC<AddInfoViewProps> = ({
 
   const handleConfirmSave = () => {
     if (!previewCompany) return;
+    const existing = findDuplicateCompany(previewCompany.name, previewCompany.website);
+    if (existing) {
+      setDuplicateCompany(existing);
+      setPreviewCompany(null);
+      setErrorMessage(`【系统规格】重复已经存在的信息不再可以添加！该公司“${existing.name}”在名录库中已存在。`);
+      return;
+    }
     onAddCompany(previewCompany);
     setIsSaved(true);
   };
@@ -328,7 +379,7 @@ export const AddInfoView: React.FC<AddInfoViewProps> = ({
               2. 智能化搜索与档案预览
             </h3>
 
-            {!isLoading && !previewCompany && (
+            {!isLoading && !previewCompany && !duplicateCompany && (
               <div className="py-12 px-4 text-center space-y-4">
                 <div className="w-16 h-16 bg-slate-800/80 border border-slate-700/60 rounded-2xl flex items-center justify-center mx-auto text-amber-400">
                   <Search className="w-8 h-8 opacity-80" />
@@ -338,6 +389,54 @@ export const AddInfoView: React.FC<AddInfoViewProps> = ({
                   <p className="text-xs text-slate-400 mt-1 max-w-md mx-auto">
                     请在左侧填入您想要搜录的轮胎公司名字，点击“开始搜索并自动完善档案”。AI 将通过网络检索补充成立年份、仓储、分销品牌及联系方式。
                   </p>
+                </div>
+              </div>
+            )}
+
+            {/* Duplicate Company System Specification Alert Card */}
+            {!isLoading && duplicateCompany && (
+              <div className="py-6 px-4 space-y-4 animate-in fade-in duration-300">
+                <div className="p-5 bg-amber-500/10 border-2 border-amber-500/40 rounded-2xl space-y-4 shadow-xl">
+                  <div className="flex items-start space-x-3 text-amber-400">
+                    <AlertCircle className="w-6 h-6 shrink-0 mt-0.5" />
+                    <div>
+                      <h4 className="text-base font-bold text-amber-300">
+                        【系统规格】重复已经存在的信息不再可以添加！
+                      </h4>
+                      <p className="text-xs text-slate-300 mt-1 leading-relaxed">
+                        系统查验发现：您输入的公司在现存名录库中已有完整档案。为保障商业数据唯一性与拜访跟踪一致性，重复信息已被系统自动拦截并阻止再次添加。
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Duplicate Company Card Details */}
+                  <div className="bg-slate-950/80 border border-slate-800 rounded-xl p-4 space-y-2">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-2">
+                        <span className="text-xl">{duplicateCompany.flagEmoji}</span>
+                        <span className="font-bold text-white text-sm sm:text-base">{duplicateCompany.name}</span>
+                      </div>
+                      <span className="text-xs text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2 py-0.5 rounded-md font-medium">
+                        已存在档案
+                      </span>
+                    </div>
+                    <div className="text-xs text-slate-400 space-y-1">
+                      <div><span className="text-slate-500">当地注册名:</span> {duplicateCompany.frenchName}</div>
+                      <div><span className="text-slate-500">总部区域:</span> {duplicateCompany.city}, {duplicateCompany.countryCn}</div>
+                      <div><span className="text-slate-500">详细地址:</span> {duplicateCompany.address}</div>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-end gap-3 pt-1">
+                    <button
+                      type="button"
+                      onClick={() => onSelectCompany(duplicateCompany)}
+                      className="bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 text-slate-950 font-bold px-5 py-2.5 rounded-xl text-xs transition-all cursor-pointer shadow-lg shadow-amber-500/20 flex items-center space-x-2"
+                    >
+                      <span>👉 查看已存在的【{duplicateCompany.name}】详细档案</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </button>
+                  </div>
                 </div>
               </div>
             )}

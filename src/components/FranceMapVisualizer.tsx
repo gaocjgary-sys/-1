@@ -165,7 +165,7 @@ export const FranceMapVisualizer: React.FC<FranceMapVisualizerProps> = ({ onSele
     // Grouping by coordinate to handle micro-offsets for overlapping locations
     const coordCounts: Record<string, number> = {};
 
-    filteredImporters.forEach((company) => {
+    filteredImporters.forEach((company, index) => {
       const baseKey = `${company.latitude.toFixed(3)}_${company.longitude.toFixed(3)}`;
       const indexInSameCity = coordCounts[baseKey] || 0;
       coordCounts[baseKey] = indexInSameCity + 1;
@@ -178,7 +178,6 @@ export const FranceMapVisualizer: React.FC<FranceMapVisualizerProps> = ({ onSele
       const lng = company.longitude + offsetLng;
 
       const isSelected = activeCompany?.id === company.id;
-      const isTop3 = company.rank <= 3;
 
       const cityNameShort = company.city.split('/')[0].trim();
       const companyShortName = company.name.split(' ')[0];
@@ -192,19 +191,12 @@ export const FranceMapVisualizer: React.FC<FranceMapVisualizerProps> = ({ onSele
           <div class="relative group cursor-pointer flex items-center space-x-1.5 transition-transform duration-200 ${
             isSelected ? 'scale-110 z-50' : 'hover:scale-105 z-10'
           }">
-            ${
-              isTop3 && isSelected
-                ? '<div class="absolute -inset-1 rounded-full bg-amber-400/40 animate-ping"></div>'
-                : ''
-            }
-            <div class="w-8 h-8 rounded-full flex items-center justify-center font-black text-xs shadow-lg border-2 ${
+            <div class="w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs shadow-lg border-2 ${
               isSelected
                 ? 'bg-amber-400 text-slate-950 border-white ring-2 ring-amber-400/50'
-                : isTop3
-                ? 'bg-amber-500 text-slate-950 border-slate-900'
                 : 'bg-slate-800 text-amber-300 border-amber-500/70'
             }">
-              #${company.rank}
+              ${index + 1}
             </div>
             <div class="bg-slate-900/95 backdrop-blur border ${
               isSelected ? 'border-amber-400 text-amber-300 ring-1 ring-amber-400/30' : 'border-slate-700 text-slate-200'

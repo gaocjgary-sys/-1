@@ -68,8 +68,8 @@ export const CompanyDetailView: React.FC<CompanyDetailViewProps> = ({
         {/* Profile Header */}
         <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-6 border-b border-slate-800">
           <div className="flex items-start space-x-3 sm:space-x-4">
-            <div className="w-11 h-11 sm:w-14 sm:h-14 bg-gradient-to-tr from-amber-500 to-yellow-400 text-slate-950 font-black rounded-2xl flex items-center justify-center text-base sm:text-2xl shrink-0 shadow-md">
-              #{company.rank}
+            <div className="w-11 h-11 sm:w-14 sm:h-14 bg-gradient-to-tr from-amber-500 to-yellow-400 text-slate-950 font-bold rounded-2xl flex items-center justify-center text-base sm:text-2xl shrink-0 shadow-md">
+              <Building2 className="w-6 h-6 sm:w-8 sm:h-8 text-slate-950" />
             </div>
             <div>
               <div className="flex flex-wrap items-center gap-2 sm:gap-3">

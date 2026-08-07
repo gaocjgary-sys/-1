@@ -1,7 +1,7 @@
 import React from 'react';
-import { ShieldCheck, Truck, BarChart3, MapPin, Sparkles, Building2, CalendarCheck, PlusCircle } from 'lucide-react';
+import { ShieldCheck, Truck, MapPin, Sparkles, Building2, CalendarCheck, PlusCircle } from 'lucide-react';
 
-export type NavTabType = 'directory' | 'add_info' | 'map' | 'analytics' | 'croatia_history' | 'ai' | 'visit_plan';
+export type NavTabType = 'directory' | 'add_info' | 'map' | 'croatia_history' | 'ai' | 'visit_plan';
 
 interface NavbarProps {
   activeTab: NavTabType;
@@ -96,19 +96,6 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, visitPl
               >
                 <MapPin className="w-4 h-4" />
                 <span>地理分布</span>
-              </button>
-
-              <button
-                id="tab-analytics"
-                onClick={() => setActiveTab('analytics')}
-                className={`flex items-center space-x-2 px-3 py-1.5 rounded-lg text-sm font-medium transition-all cursor-pointer ${
-                  activeTab === 'analytics'
-                    ? 'bg-amber-500 text-slate-950 font-semibold shadow-sm'
-                    : 'text-slate-300 hover:text-white hover:bg-slate-700/50'
-                }`}
-              >
-                <BarChart3 className="w-4 h-4" />
-                <span>市场图谱</span>
               </button>
 
               <button

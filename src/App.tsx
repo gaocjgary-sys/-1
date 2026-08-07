@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Navbar, NavTabType } from './components/Navbar';
 import { ImportersTable } from './components/ImportersTable';
 import { CompanyDetailView } from './components/CompanyDetailView';
 import { FranceMapVisualizer } from './components/FranceMapVisualizer';
-import { MarketInsightsCharts } from './components/MarketInsightsCharts';
 import { CroatiaHistoryView } from './components/CroatiaHistoryView';
 import { AiAdvisorPanel } from './components/AiAdvisorPanel';
 import { VisitPlanView } from './components/VisitPlanView';
 import { AddInfoView } from './components/AddInfoView';
 import { ALL_EUROPEAN_TIRE_IMPORTERS } from './data/importersData';
-import { ImporterCompany, VisitPlanItem } from './types';
+import { ImporterCompany, VisitPlanItem, FilterState } from './types';
 
 const LOCAL_STORAGE_KEY = 'european_tire_visit_plan_v1';
 const CUSTOM_IMPORTERS_KEY = 'european_tire_custom_importers_v1';
@@ -84,6 +83,15 @@ export default function App() {
   const [selectedCompany, setSelectedCompany] = useState<ImporterCompany | null>(null);
   const [pitchCompany, setPitchCompany] = useState<ImporterCompany | null>(null);
   const [visitPlanMap, setVisitPlanMap] = useState<Record<string, VisitPlanItem>>(getInitialVisitPlan);
+  const [importersFilters, setImportersFilters] = useState<FilterState>({
+    searchQuery: '',
+    country: 'ALL',
+    segment: 'ALL',
+    region: 'ALL',
+    brand: 'ALL',
+    tier: 'ALL',
+    sortBy: 'rank',
+  });
 
   useEffect(() => {
     try {
@@ -110,7 +118,22 @@ export default function App() {
     setCustomImporters((prev) => prev.filter((c) => c.id !== id));
   };
 
-  const importers = [...customImporters, ...ALL_EUROPEAN_TIRE_IMPORTERS];
+  const importers = useMemo(() => {
+    const seenNames = new Set<string>();
+    const seenIds = new Set<string>();
+    const result: ImporterCompany[] = [];
+    const combined = [...customImporters, ...ALL_EUROPEAN_TIRE_IMPORTERS];
+
+    for (const company of combined) {
+      const normName = company.name.trim().toLowerCase().replace(/[^a-z0-9]/g, '');
+      if (!seenNames.has(normName) && !seenIds.has(company.id)) {
+        seenNames.add(normName);
+        seenIds.add(company.id);
+        result.push(company);
+      }
+    }
+    return result;
+  }, [customImporters]);
 
   const toggleVisitPlan = (companyId: string) => {
     setVisitPlanMap((prev) => {
@@ -179,6 +202,8 @@ export default function App() {
               {activeTab === 'directory' && (
                 <ImportersTable
                   importers={importers}
+                  filters={importersFilters}
+                  onFiltersChange={setImportersFilters}
                   onSelectCompany={setSelectedCompany}
                   onOpenAiPitch={handleOpenAiPitch}
                   onNavigateCroatiaHistory={() => setActiveTab('croatia_history')}
@@ -193,6 +218,7 @@ export default function App() {
                   onAddCompany={handleAddCompany}
                   onSelectCompany={setSelectedCompany}
                   customImporters={customImporters}
+                  allImporters={importers}
                   onRemoveCustomImporter={handleRemoveCustomImporter}
                 />
               )}
@@ -210,8 +236,6 @@ export default function App() {
               {activeTab === 'map' && (
                 <FranceMapVisualizer importers={importers} onSelectCompany={setSelectedCompany} />
               )}
-
-              {activeTab === 'analytics' && <MarketInsightsCharts />}
 
               {activeTab === 'croatia_history' && <CroatiaHistoryView />}
 

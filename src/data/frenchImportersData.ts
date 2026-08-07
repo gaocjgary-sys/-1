@@ -773,8 +773,8 @@ export const FULL_FRENCH_TIRE_IMPORTERS: ImporterCompany[] = [
     logisticsHubsCount: 2,
     website: 'https://www.allopneus.com',
     phone: '+33 (0)8 92 46 09 00',
-    email: 'sourcing@allopneus.com',
-    address: 'Le Axium, 435 Avenue Victor Hugo, 13100 Aix-en-Provence, France',
+    email: 'robin.toman@allopneus.com',
+    address: 'Allopneus SAS, Le Axium, 435 Avenue Victor Hugo, 13090 Aix-en-Provence, France',
     chineseSourcingVerified: true,
     verifiedChineseBrands: [
       {
@@ -790,6 +790,20 @@ export const FULL_FRENCH_TIRE_IMPORTERS: ImporterCompany[] = [
         categories: ['PCR', 'TBR'],
         partnershipType: 'Official Partner / 官方合作伙伴',
         popularModels: ['AdvanteX', 'SeasonX']
+      },
+      {
+        brandEn: 'Wanli',
+        brandCn: '万力轮胎',
+        categories: ['PCR', 'UHP', 'LCV'],
+        partnershipType: 'Direct Importer / 直接进口商',
+        popularModels: ['Harmonic H220', 'Sport Macro SA302']
+      },
+      {
+        brandEn: 'Sunwide',
+        brandCn: '尚威轮胎',
+        categories: ['PCR', 'SUV'],
+        partnershipType: 'Direct Importer / 直接进口商',
+        popularModels: ['RS-Zero', 'Sunwin']
       },
       {
         brandEn: 'Linglong',
@@ -961,9 +975,9 @@ export const FULL_FRENCH_TIRE_IMPORTERS: ImporterCompany[] = [
     flagEmoji: '🇫🇷',
     name: 'Fort Pneus',
     frenchName: 'Fort Pneus Distribution',
-    city: 'Toulouse / Portet-sur-Garonne',
+    city: 'Lunel-Viel / Montpellier',
     region: 'Occitanie',
-    department: 'Haute-Garonne (31)',
+    department: 'Hérault (34)',
     foundedYear: 1995,
     estimatedAnnualVolume: '950,000+ 条/年',
     annualVolumeNumber: 950000,
@@ -971,9 +985,9 @@ export const FULL_FRENCH_TIRE_IMPORTERS: ImporterCompany[] = [
     warehouseArea: '28,000 m²',
     logisticsHubsCount: 3,
     website: 'https://www.fortpneus.fr',
-    phone: '+33 (0)5 61 72 88 88',
+    phone: '+33 (0)4 67 71 88 88',
     email: 'contact@fortpneus.fr',
-    address: '12 Chemin de la Zone, 31120 Portet-sur-Garonne, France',
+    address: '370 chemin des Fournels ZI Les Fournels 2 34400 Lunel-Viel, France',
     chineseSourcingVerified: true,
     verifiedChineseBrands: [
       {
@@ -1436,5 +1450,254 @@ export const FULL_FRENCH_TIRE_IMPORTERS: ImporterCompany[] = [
     pitchingTips: '主打高性价比 3PMSF 冬胎、四季胎及精准混合集装箱发货周转。',
     latitude: 45.696,
     longitude: 4.945
+  },
+  {
+    id: 'paris-pneus',
+    rank: 25,
+    distributorTier: '二级批发商',
+    country: 'France',
+    countryCn: '法国',
+    countryCode: 'FR',
+    flagEmoji: '🇫🇷',
+    name: 'Paris Pneus',
+    frenchName: 'Paris Pneus SARL',
+    city: 'Paris / 巴黎',
+    region: 'Île-de-France',
+    department: 'Paris (75)',
+    foundedYear: 2010,
+    estimatedAnnualVolume: '350,000+ 条/年',
+    annualVolumeNumber: 350000,
+    employeeCount: '25 人',
+    warehouseArea: '8,000 m²',
+    logisticsHubsCount: 1,
+    website: 'https://www.parispneus.fr',
+    phone: '+33 (0)1 46 28 35 25',
+    email: 'contact@parispneus.fr',
+    address: '57 Boulevard Poniatowski, 75012 Paris, France',
+    chineseSourcingVerified: true,
+    verifiedChineseBrands: [
+      {
+        brandEn: 'Jinyu',
+        brandCn: '金宇轮胎',
+        categories: ['PCR', 'SUV'],
+        partnershipType: 'Direct Importer / 直接进口商',
+        popularModels: ['YS71', 'YS78']
+      },
+      {
+        brandEn: 'Landsail',
+        brandCn: '陆航轮胎 (森麒麟)',
+        categories: ['PCR', 'UHP'],
+        partnershipType: 'Direct Importer / 直接进口商',
+        popularModels: ['LS388', 'LS588']
+      }
+    ],
+    segments: ['PCR', 'SUV', 'LCV'],
+    clientTypes: ['巴黎大区 200+ 合作汽车修理厂', '出租车/网约车服务点', '都市零售门市'],
+    businessOverview: 'Paris Pneus 位于巴黎12区 (57 Boulevard Poniatowski)，是大巴黎地区（Île-de-France）核心的轮胎批发与零售配送节点，重点进口并分销金宇（Jinyu）与陆航（Landsail/森麒麟）等高性价比中国乘用车轮胎。',
+    sourcingStrategy: '专注巴黎都市圈快速配送，长期批量直接进口金宇及陆航等具备欧洲高标签能效的优质乘用车胎。',
+    procurementRequirements: {
+      certification: ['3PMSF 欧标认证', 'EU Label Pass'],
+      minOrderQuantity: '3-5 40HQ 柜/月',
+      paymentTerms: 'T/T 30% + 70% LC',
+      targetPriceSegment: 'Urban High-Margin Budget'
+    },
+    pitchingTips: '提供高流转尺寸（16-19寸）以及四季胎供给，强调对巴黎出租车与网约车高频替换需求。',
+    latitude: 48.8357,
+    longitude: 2.3982
+  },
+  {
+    id: 'pneumacy-france',
+    rank: 26,
+    distributorTier: '二级批发商',
+    country: 'France',
+    countryCn: '法国',
+    countryCode: 'FR',
+    flagEmoji: '🇫🇷',
+    name: 'Pneumacy',
+    frenchName: 'Pneumacy SARL',
+    city: 'Sartrouville / Paris',
+    region: 'Île-de-France',
+    department: 'Yvelines (78)',
+    foundedYear: 2012,
+    estimatedAnnualVolume: '280,000+ 条/年',
+    annualVolumeNumber: 280000,
+    employeeCount: '20 人',
+    warehouseArea: '6,500 m²',
+    logisticsHubsCount: 1,
+    website: 'https://www.pneumacy.fr',
+    phone: '+33 (0)9 83 20 00 60',
+    email: 'info@pneumacy.fr',
+    address: '58 Rue Jean Pierre Timbaud, 78500 Sartrouville, France',
+    chineseSourcingVerified: true,
+    verifiedChineseBrands: [
+      {
+        brandEn: 'Shengtai',
+        brandCn: '盛泰轮胎 (三工轮胎)',
+        categories: ['PCR', 'TBR'],
+        partnershipType: 'Direct Importer / 直接进口商',
+        popularModels: ['P306', 'AOTELI P607']
+      }
+    ],
+    segments: ['PCR', 'SUV', 'TBR', 'LCV'],
+    clientTypes: ['大巴黎西北部快修店', '中小物流车队', '独立安装网点'],
+    businessOverview: 'Pneumacy 位于巴黎大区萨特鲁维尔 (Sartrouville)，是大巴黎西北部知名的轮胎分销服务商，直接进口盛泰（Shengtai/奥特利）等中国品牌轮胎，服务周边数百家汽修门店与车队。',
+    sourcingStrategy: '主打性价比高、规格全的乘用车胎及商用车胎直接工厂进口。',
+    procurementRequirements: {
+      certification: ['3PMSF', 'E-mark'],
+      minOrderQuantity: '2-4 40HQ 柜/月',
+      paymentTerms: 'T/T',
+      targetPriceSegment: 'Regional Budget'
+    },
+    pitchingTips: '强调盛泰全系列规格及快速工厂整柜交期。',
+    latitude: 48.9392,
+    longitude: 2.1645
+  },
+  {
+    id: 'rapide-tyres',
+    rank: 27,
+    distributorTier: '二级批发商',
+    country: 'France',
+    countryCn: '法国',
+    countryCode: 'FR',
+    flagEmoji: '🇫🇷',
+    name: 'Rapide Tyres',
+    frenchName: 'Rapide Tyres SAS',
+    city: 'Gignac-la-Nerthe / Marseille',
+    region: "Provence-Alpes-Côte d'Azur",
+    department: 'Bouches-du-Rhône (13)',
+    foundedYear: 2015,
+    estimatedAnnualVolume: '310,000+ 条/年',
+    annualVolumeNumber: 310000,
+    employeeCount: '18 人',
+    warehouseArea: '7,200 m²',
+    logisticsHubsCount: 1,
+    website: 'https://www.rapide-tyres.com',
+    phone: '+33 (0)6 42 37 89 99',
+    email: 'ventes@rapide-tyres.com',
+    address: '595 Av. François Mitterrand, 13180 Gignac-la-Nerthe, France',
+    chineseSourcingVerified: true,
+    verifiedChineseBrands: [
+      {
+        brandEn: 'Hongsheng',
+        brandCn: '鸿升轮胎',
+        categories: ['TBR', 'PCR'],
+        partnershipType: 'Direct Importer / 直接进口商',
+        popularModels: ['HK802', 'HS102']
+      }
+    ],
+    segments: ['PCR', 'TBR', 'LCV', 'SUV'],
+    clientTypes: ['马赛及普罗旺斯地区B2B车队', '南部汽修联盟', '物流公司'],
+    businessOverview: 'Rapide Tyres 位于马赛近郊的吉尼亚克拉内尔特 (Gignac-la-Nerthe)，是法国南部核心的轮胎分销商，专营鸿升（Hongsheng）等高耐磨中国卡客车胎与乘用车胎。',
+    sourcingStrategy: '依托靠近马赛港的物流优势，直接整柜进口中国优质高性价比卡客车与轻卡轮胎。',
+    procurementRequirements: {
+      certification: ['3PMSF', 'E-mark', 'ECE R117'],
+      minOrderQuantity: '3-5 40HQ 柜/月',
+      paymentTerms: 'T/T 30% + 70% LC',
+      targetPriceSegment: 'Southern B2B Commercial & Budget'
+    },
+    pitchingTips: '依托马赛清关快捷优势，主打高载重、高性价比 TBR 与 LCV 产品。',
+    latitude: 43.3931,
+    longitude: 5.2132
+  },
+  {
+    id: 'slpa-pneus',
+    rank: 28,
+    distributorTier: '二级批发商',
+    country: 'France',
+    countryCn: '法国',
+    countryCode: 'FR',
+    flagEmoji: '🇫🇷',
+    name: 'SLPA Pneus',
+    frenchName: 'SLPA Pneus (Société Lyonnaise de Pneumatiques)',
+    city: 'Saint-Laurent-de-Mure / Lyon',
+    region: 'Auvergne-Rhône-Alpes',
+    department: 'Rhône (69)',
+    foundedYear: 2005,
+    estimatedAnnualVolume: '480,000+ 条/年',
+    annualVolumeNumber: 480000,
+    employeeCount: '32 人',
+    warehouseArea: '12,000 m²',
+    logisticsHubsCount: 1,
+    website: 'https://www.slpapneus.com',
+    phone: '+33 (0)4 78 40 78 31',
+    email: 'contact@slpapneus.com',
+    address: '1 Rue Jean François Crassard, 69720 Saint-Laurent-de-Mure, France',
+    chineseSourcingVerified: true,
+    verifiedChineseBrands: [
+      {
+        brandEn: 'Westlake',
+        brandCn: '西湖轮胎 (中策橡胶)',
+        categories: ['PCR', 'LCV', 'TBR'],
+        partnershipType: 'Direct Importer / 直接进口商',
+        popularModels: ['Z-107', 'CR966']
+      },
+      {
+        brandEn: 'Linglong',
+        brandCn: '玲珑轮胎',
+        categories: ['PCR', 'SUV'],
+        partnershipType: 'Direct Importer / 直接进口商',
+        popularModels: ['Green-Max']
+      }
+    ],
+    segments: ['PCR', 'SUV', 'LCV', 'TBR'],
+    clientTypes: ['里昂及罗讷-阿尔卑斯大区汽车修理厂', '地方分销商', '运输车队'],
+    businessOverview: 'SLPA Pneus (Société Lyonnaise de Pneumatiques et Accessoires) 位于里昂近郊 (Saint-Laurent-de-Mure)，是法国罗讷-阿尔卑斯大区老牌专业轮胎批发放量巨头，拥有强大的本土快速发货与仓储配送能力。',
+    sourcingStrategy: '常年集装箱采购中高端中国性价比乘用车、轻卡与卡客车轮胎，追求极佳的本土高频流转率。',
+    procurementRequirements: {
+      certification: ['3PMSF', 'E-mark', 'REACH'],
+      minOrderQuantity: '4-6 40HQ 柜/月',
+      paymentTerms: 'L/C 60 days',
+      targetPriceSegment: 'Rhône Regional Champion Budget'
+    },
+    pitchingTips: '主打高性价比四季胎与高流转标准规格。',
+    latitude: 45.6881,
+    longitude: 5.0482
+  },
+  {
+    id: 'gr-pneus',
+    rank: 29,
+    distributorTier: '二级批发商',
+    country: 'France',
+    countryCn: '法国',
+    countryCode: 'FR',
+    flagEmoji: '🇫🇷',
+    name: 'GR Pneus',
+    frenchName: 'GR Pneus SARL',
+    city: 'Morhange / Nancy',
+    region: 'Grand Est',
+    department: 'Moselle (57)',
+    foundedYear: 2011,
+    estimatedAnnualVolume: '260,000+ 条/年',
+    annualVolumeNumber: 260000,
+    employeeCount: '16 人',
+    warehouseArea: '6,000 m²',
+    logisticsHubsCount: 1,
+    website: 'https://www.gr-pneus.fr',
+    phone: '+33 (0)3 55 14 07 67',
+    email: 'commercial@gr-pneus.fr',
+    address: '7 Rue du Dix Huit Novembre, 57340 Morhange, France',
+    chineseSourcingVerified: true,
+    verifiedChineseBrands: [
+      {
+        brandEn: 'Aplus',
+        brandCn: '奥普勒斯轮胎',
+        categories: ['PCR', 'SUV', 'LCV'],
+        partnershipType: 'Direct Importer / 直接进口商',
+        popularModels: ['A607', 'A929']
+      }
+    ],
+    segments: ['PCR', 'SUV', 'LCV', 'AGRI'],
+    clientTypes: ['法国大东部大区 (Grand Est) 汽修合作网点', '摩泽尔省农用及商用服务中心'],
+    businessOverview: 'GR Pneus 位于法国大东部大区摩泽尔省 (Morhange)，靠近南锡与梅斯，是大东部大区专业轮胎批发商，核心代理并直接进口 A Plus (奥普勒斯) 等高性价比中国轮胎。',
+    sourcingStrategy: '面向大东部大区及中欧边境市场，批量进口性价比高、抗磨耐用的中国乘用车与轻卡轮胎。',
+    procurementRequirements: {
+      certification: ['3PMSF', 'E-mark'],
+      minOrderQuantity: '2-4 40HQ 柜/月',
+      paymentTerms: 'T/T',
+      targetPriceSegment: 'Eastern Regional Budget'
+    },
+    pitchingTips: '聚焦大东部大区冬季多雪气候，推介具备 3PMSF 认证的奥普勒斯雪胎与四季胎。',
+    latitude: 48.9242,
+    longitude: 6.6375
   }
 ];
